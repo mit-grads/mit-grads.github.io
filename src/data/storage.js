@@ -1,4 +1,5 @@
 const QUIZ_RESULTS_KEY = 'mit-historical-quiz-results';
+const CURRENT_USER_INFO_KEY = 'mit-current-user-info';
 
 export const storage = {
     storage: window.localStorage,
@@ -18,4 +19,14 @@ export const storage = {
     saveQuizResults(results, name = 'default') {
         this.save(QUIZ_RESULTS_KEY + '-' + name, results);
     },
+    getCurrentUserInfo() {
+        const info = this.get(CURRENT_USER_INFO_KEY);
+        if(info) {
+            return info;
+        }
+        return null;
+    },
+    saveCurrentUserInfo(info) {
+        this.save(CURRENT_USER_INFO_KEY, info);
+    }
 };

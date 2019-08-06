@@ -8,7 +8,6 @@ header {
     background-color: #6893E2;
     width: 100%;
     height: auto;
-
 }
 
 h1{
@@ -19,57 +18,37 @@ h1{
 h2{
     font-family: 'Red Hat Display', sans-serif;
     font-size: 1.5em;
-        margin:0 0 0 0;
+    margin:0 0 0 0;
+}
 
+button {
+    margin: 10px;
+    transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
+}
 
+button:hover {
+    transform: translate(-2px, -2px);
+    background-color: #EFEFEF;
+    box-shadow:2px 2px 5px 1px #ABA8B2;
+    color: black;
 }
 
 footer {
     background-color: #6893E2;
     width: 100%;
     height: 5vh;
-    margin-top: 20px;
-    padding-right:20px;
+    margin: 0;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 footer p {
-    text-align: right;
+    display: inline-block;
+    padding-right: 20px;
     font-family: 'Blinker', sans-serif;
     color:#4C4B63;
 }
 
-button {
-    border: 3px solid #4C4B63;
-    background-color:#ABA8B2;
-    color: #4C4B63;
-    font-size: 1.2rem;
-    margin: 3vh;
-    height: 40px;
-    width: 200px;
-    font-weight: 800;
-}
-
-input {
-    height: 40px;
-    width: 200px;
-    font-size: 1.2em;
-}
-
 .hidden {
     display: none;
-}
-
-.container {
-    display: flex;
-    width: 100vw;
-    margin-right: auto;
-    margin-left: auto;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-li {
-    font-family: 'Blinker', sans-serif;
-
 }
