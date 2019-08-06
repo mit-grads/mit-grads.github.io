@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { findById } from '../src/utils.js';
-import { notes } from '../src/data/notes.js';
+import { notesArrayObjects } from '../src/data/notes.js';
 import { instruments } from '../src/data/instrument.js';
 import { playInterval } from './playInterval.js';
 import { IntervalClass } from './data/interval-class.js';
@@ -79,8 +79,10 @@ export function playNote(instrument, note, duration) {
     osc.setType(instrument.oscType);
     osc.amp(1);
 
-    const frequency = notes[note];
-    osc.freq(frequency);
+    const noteObject = notesArrayObjects.find((element) => {
+        return element.name === note;
+    });
+    osc.freq(noteObject.frequency);
 
     filterEnv.play(filter);
     env.play(osc);
