@@ -11,10 +11,6 @@ export class Sound {
         this.play = function(){
             this.sound.play();
         };
-        this.loop = function(){
-            this.sound.play();
-            this.sound.loop = true;
-        };
         this.stop = function(){
             this.sound.pause();
         };
