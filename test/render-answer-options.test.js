@@ -5,7 +5,7 @@ QUnit.module('render answer options');
 
 test('render answer html', assert => {
     // arrange
-    const expected = '<div><label for="choice"><img src="https://via.placeholder.com/150"></label><input type="radio" name="choice"></div>';
+    const expected = '<div><label for="choice"><div></div></label><input type="radio" name="choice"></div>';
     
     const imageSrc = 'https://via.placeholder.com/150';
 
