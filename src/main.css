@@ -1,0 +1,51 @@
+
+header {
+    background-color: #ddd;
+    width: 99%;
+    height: 150px;
+    border: 5px solid #111;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #ddd;
+    width: 99%;
+    height: 15vh;
+    border: 5px solid #111;
+    margin-top: 20px;
+}
+
+button {
+    border: 3px solid #ddd;
+    background-color: #111;
+    color: #eee;
+    font-size: 1.2rem;
+    margin: 3vh;
+    height: 40px;
+    width: 200px;
+}
+
+input {
+    height: 40px;
+    width: 200px;
+    font-size: 1.2em;
+}
+
+footer p {
+    margin-right: 3vw;
+    text-align: right;
+    margin-top: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+    flex-direction: column;
+    align-items: center;
+}
