@@ -22,6 +22,15 @@ playIntervalButton.addEventListener('click', () => {
     playInterval(firstNote, secondNote, instrument, intervalType, duration);
 });
 
+//make array with correct answer, and two other answers
+//get random number 0-8 different than distance/differnt than itself
+//build array with three answers
+//suffle array
+//create dom based on array
+//select is always on right
+
+//to know if right answer
+//variable correct answer
 
 const dom = renderAnswerOption(distance, false);
 choiceSection.appendChild(dom);
