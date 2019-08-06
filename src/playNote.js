@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { findById } from '../src/utils.js';
-import { noteArray } from '../src/data/notes.js';
+import { notes } from '../src/data/notes.js';
 import { instruments } from '../src/data/instrument.js';
 
 const button = document.getElementById('bweh');
@@ -64,7 +64,7 @@ function playNote(instrument, note, duration) {
     osc.setType(instrument.oscType);
     osc.amp(.5);
 
-    const frequency = noteArray[note];
+    const frequency = notes[note];
     osc.freq(frequency);
 
     filterEnv.play(filter);

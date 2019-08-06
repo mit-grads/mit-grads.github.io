@@ -1,4 +1,4 @@
-export const noteArray = {
+export const notes = {
     'A1': 220,
     'A#1 / Bb1': 233.08,
     'B1': 246.94,
