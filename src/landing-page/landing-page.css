@@ -1,6 +1,26 @@
 
 #staff-place-holder {
     background-color: #aaaaaa;
-    width: 100vw;
-    height: 25vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#staff-place-holder img {
+    height: calc(100% - 10px);
+    flex-shrink: 1;
+    transition: 300ms;
+    transition-timing-function: ease-in-out;
+}
+#staff-place-holder img:hover {
+    position: relative;
+    background: #FEFEFE;
+    box-shadow: 2px 2px #888888;
+    transform: translate(-2px, -2px);
+}
+#staff-place-holder.hidden {
+    transform: scale(0, 0);
+}
+#staff-place-holder.hidden {
+    display: none;
 }
