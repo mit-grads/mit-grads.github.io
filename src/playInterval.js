@@ -14,15 +14,25 @@
 import { playNote } from './playNote.js';
 
 
-export function playInterval(firstNote, secondNote, instrument, duration) {
+export function playInterval(firstNote, secondNote, instrument, type = 'melodic', duration) {
 
-    playNote(instrument, firstNote, duration);
+    if(type === 'melodic') {
 
-    const pause = (duration * 1000) + 100;
+        playNote(instrument, firstNote, duration);
 
-    setTimeout(() => {
+        const pause = (duration * 1000);
+
+        setTimeout(() => {
+            playNote(instrument, secondNote, duration);
+        }, pause);
+
+    } else if(type === 'harmonic') {
+        playNote(instrument, firstNote, duration);
         playNote(instrument, secondNote, duration);
-    }, pause);
+
+    }
+
+
 
 }
 
