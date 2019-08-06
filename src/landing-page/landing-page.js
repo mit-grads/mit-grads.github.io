@@ -44,7 +44,8 @@ function goToQuizPage(event) {
 }
 
 function startMusic() {
-    backgroundMusic.loop();
+    backgroundMusic.play();
+    setTimeout(() => backgroundMusic.stop(), 36 * 1000);
 }
 function stopMusic() {
     backgroundMusic.stop();
