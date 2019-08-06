@@ -5,7 +5,8 @@ import { IntervalClass } from '../data/interval-class.js';
 import { renderAnswerOption } from '../render-answer-options.js';
 
 const playIntervalButton = document.getElementById('play-interval-button');
-const choiceSection = document.getElementById('c')
+const choiceSection = document.getElementById('choice-section');
+
 const interval = new IntervalClass();
 const distance = Math.floor(Math.random() * 8);
 interval.setSecondNote(distance);
@@ -21,3 +22,6 @@ playIntervalButton.addEventListener('click', () => {
     playInterval(firstNote, secondNote, instrument, intervalType, duration);
 });
 
+
+const dom = renderAnswerOption(distance, false);
+choiceSection.appendChild(dom);

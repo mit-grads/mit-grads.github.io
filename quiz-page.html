@@ -18,22 +18,20 @@
         </header>
         <body>
             <div class="answer-container">
-                <button>Play Interval</button>
-                <section class="choices">
-                    <div>
-                        <label for="choice"><div></div></label>
-                        <input type="radio" name=choice>
-                        <label for="choice"><div></div></label>
-                        <input type="radio" name=choice>
-                        <label for="choice"><div></div></label>
-                        <input type="radio" name=choice>
-                    </div>
-                </section>
+                <button id="play-interval-button">Play Interval</button>
+                <section id="choice-section" class="choices"></section>
                 <button>Next</button>
             </div>
         </body>
         <footer>
             <p class="right-justification"><a>&copy MIT Grads</a></p>
         </footer>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
+            integrity="sha256-WVsM3xrcqyuFNF3W1qtIKbHFsD0977nDQA8DCMp1zCw="crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"
+            integrity="sha256-GdlroanCXFgv0ILaTQ1v0qnNxc+FQNjjXADWxmtr7PM="crossorigin="anonymous"></script>
+        <script src="./src/quiz-page/quiz-page.js" type="module"></script>
     </body>
 </html>
