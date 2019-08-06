@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Musical Interval Trainer</title>
     <link rel="stylesheet" href="./src/main.css">
+    <link rel="stylesheet" href="./src/landing-page/landing-page.css">
 </head>
 <body>
     <header>
@@ -16,26 +17,28 @@
     </header>
     <main>
         <div class="container" >
-            <form>
-                <input type="text">
-                <br>
-                <button>Submit User Name</button>
-            </form>
+            <!-- to be hidden after landing -->
+            <div id="staff-place-holder"></div>
         </div>
-        <div class="container" >
-            <h2>Hi <span></span>, Welcome to MIT</h2>
+        <div class="container"> 
+            <!-- to be hidden on first landing -->
+            <h2>Welcome to MIT</h2>
             <ul>
                 <li>On the next page, a series of ten intervals will be played.</li>
                 <li>You may listen to the interval as many times as you'd like by pressing the "Play Interval" button.</li>
                 <li>Please listen to the interval and identify it using the answer buttons provided.</li>
-                <li>Once you select your answer, click the "Next Interval" button to go to the next question.</li>
+                <li>Once you select your answer, click the "Next Interval" button to play a new interval.</li>
                 <li>Once you have gone through all ten intervals, please go on to the results page to see how you did.</li>
             </ul>
-            <button>Start The Quiz</button>
+            <form>
+                <input type="text">
+                <button>Submit User Name</button>
+            </form>
         </div>
     </main>
     <footer>
-        <p class="right-justification"><a>&copy MIT Grads</a></p>
+        <p><a>&copy MIT Grads</a></p>
     </footer>
+    <script src="./src/landing-page/landing-page.js" type="module"></script>
 </body>
 </html>
