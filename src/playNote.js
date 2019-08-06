@@ -24,9 +24,9 @@ const instrument = findById(instruments, 'trumpet');
 
 const intervalType = 'melodic';
 
-button.addEventListener('click', () => {
-    playInterval(firstNote, secondNote, instrument, intervalType, duration);
-});
+// button.addEventListener('click', () => {
+//     playInterval(firstNote, secondNote, instrument, intervalType, duration);
+// });
 
 
 export function playNote(instrument, note, duration) {
