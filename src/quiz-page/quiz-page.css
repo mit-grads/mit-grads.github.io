@@ -1,14 +1,3 @@
-button {
-    margin: 10px;
-    transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
-}
-
-button:hover {
-    transform: translate(-2px, -2px);
-    background-color: #EFEFEF;
-    box-shadow:2px 2px 5px 1px #ABA8B2;
-    color: black;
-}
 
 
 input {
