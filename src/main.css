@@ -8,7 +8,6 @@ header {
     background-color: #6893E2;
     width: 100%;
     height: auto;
-    position:fixed;
 
 }
 
@@ -33,27 +32,27 @@ footer {
     padding-right:20px;
 }
 
+footer p {
+    text-align: right;
+    font-family: 'Blinker', sans-serif;
+    color:#4C4B63;
+}
+
 button {
-    border: 3px solid #ddd;
-    background-color: #111;
-    color: #eee;
+    border: 3px solid #4C4B63;
+    background-color:#ABA8B2;
+    color: #4C4B63;
     font-size: 1.2rem;
     margin: 3vh;
     height: 40px;
     width: 200px;
+    font-weight: 800;
 }
 
 input {
     height: 40px;
     width: 200px;
     font-size: 1.2em;
-}
-
-footer p {
-    text-align: right;
-    font-family: 'Blinker', sans-serif;
-
-
 }
 
 .hidden {
@@ -67,4 +66,10 @@ footer p {
     margin-left: auto;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+}
+
+li {
+    font-family: 'Blinker', sans-serif;
+
 }
