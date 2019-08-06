@@ -1,38 +1,41 @@
-import { notes, noteArray } from './notes.js';
+import { notesArrayObjects, chromaticIntervalReference, diatonicScale, chromaticScale } from './notes.js';
 
 export class IntervalClass {
     constructor(note = 'A1', scale = 'diatonic') {
-        this.startIndex = noteArray.indexOf(note);
-        if(notes[note]) {
-            this.firstNote = note;
-        }
-        else {
-            this.firstNote = '';
-        }
+        this.setFirstNote(note);
         this.secondNote = '';
+        
         if(scale === 'diatonic') {
-            this.scaleDegrees = [0, 2, 4, 5, 7, 9, 11, 12];
+            this.scale = diatonicScale;
         }
         else { 
-            this.scaleDegrees = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+            this.scale = chromaticScale;
         }
     }
 
     getFirstNote() {
-        return noteArray[this.startIndex];
+        return this.firstNote;
     }
     getSecondNote() {
         return this.secondNote;
     }
-    setSecondNote(distance, direction = 'ascending') {
-        if(direction === 'ascending') {
-            this.secondNote = noteArray[this.startIndex + this.scaleDegrees[distance]];
+    setFirstNote(note) {
+        this.startIndex = notesArrayObjects.findIndex((element) => element.name === note);
+        if(this.startIndex >= 0) {
+            this.firstNote = notesArrayObjects[this.startIndex].name;
         }
         else {
-            this.secondNote = noteArray[this.startIndex - this.scaleDegrees[distance]];
+            this.firstNote = '';
         }
     }
-    randomizeInterval() {
-        this.upperNote = notes['C1'];
+    setSecondNote(distance, direction = 'ascending') {
+        const intervalName = this.scale[distance];
+        const chromaticDegrees = chromaticIntervalReference[intervalName];
+        if(direction === 'ascending') {
+            this.secondNote = notesArrayObjects[this.startIndex + chromaticDegrees].name;
+        }
+        else {
+            this.secondNote = notesArrayObjects[this.startIndex - chromaticDegrees].name;
+        }
     }
 }
