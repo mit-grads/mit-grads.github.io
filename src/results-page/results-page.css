@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Blinker|Red+Hat+Display&display=swap');
+
 table {
-    border: 3px solid  #111;
+    border: 3px solid  #4C4B63;
     border-collapse: collapse;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -8,15 +10,17 @@ table {
 }
 
 thead, tfoot {
-    background:#aaa;
+    background:#949396;
 }
 
 td, th {
-    border: 2px solid  #777;
+    border: 2px solid  #4C4B63;
+        font-family: 'Blinker', sans-serif;
+
 }
 
 tbody {
-    background: #eee;
+    background: #EFEFEF;
 }
 
 table th, table td {
@@ -25,5 +29,5 @@ table th, table td {
 }
 
 tbody tr:nth-child(even) {
-    background: #bbb;
+    background: #ABA8B2;
 }

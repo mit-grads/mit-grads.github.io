@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Musical Interval Trainer Quiz Results</title>
-    <link rel="stylesheet" href="./src/main.css">
-    <link rel="stylesheet" href="./src/results-page/results-page.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-                <h1>M.I.T</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Musical Interval Trainer Quiz Results</title>
+        <link rel="stylesheet" href="./src/main.css">
+        <link rel="stylesheet" href="./src/results-page/results-page.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>M.I.T.</h1>
                 <h2>The Results Of Your Quiz</h2>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <h1>You got <span id="user-correct-answers"></span> out of <span id="number-of-rounds"></span> Correct!</h1>
-        </div>
-        <div class="container">
-            <h2>Take A Look At The Results Below To See What Intervals You Had Trouble With</h2>
-            <table>
-                <thead>
-                    <th>Interval Name</th>
-                    <th>Correctly Identified</th>
-                    <th>Was Played</th>
-                </thead>
-                <tr>
-                    <td>Major 3rd</td>
-                    <td>2</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>Perfect 4th</td>
-                    <td>1</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>Major 7th</td>
-                    <td>2</td>
-                    <td>4</td>
-                </tr>
-                <tfoot>
-                    <th>Total</th>
-                    <th>5</th>
-                    <th>10</th>
-                </tfoot>
-            </table>
-        </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h1>You got <span id="user-correct-answers"></span> out of <span
+                        id="number-of-rounds"></span> Correct!</h1>
+            </div>
+            <div class="container">
+                <h2>Take A Look At The Results Below To See What Intervals You
+                    Had Trouble With</h2>
+                <table>
+                    <thead>
+                        <th>Interval Name</th>
+                        <th>Correctly Identified</th>
+                        <th>Was Played</th>
+                    </thead>
+                    <tr>
+                        <td>Major 3rd</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Perfect 4th</td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Major 7th</td>
+                        <td>2</td>
+                        <td>4</td>
+                    </tr>
+                    <tfoot>
+                        <th>Total</th>
+                        <th>5</th>
+                        <th>10</th>
+                    </tfoot>
+                </table>
+            </div>
 
-    </main>
-    <footer>
-        <p><a>&copy MIT Grads</a></p>
-    </footer>
-    <script src="./src/results-page/results-page.js" type="module"></script>
-</body>
+        </main>
+        <footer>
+            <p><a>&copy MIT Grads</a></p>
+        </footer>
+        <script src="./src/results-page/results-page.js" type="module"></script>
+    </body>
 </html>
