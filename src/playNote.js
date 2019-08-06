@@ -3,6 +3,20 @@
 import { findById } from '../src/utils.js';
 import { notes } from '../src/data/notes.js';
 import { instruments } from '../src/data/instrument.js';
+import { playInterval } from './playInterval.js';
+import { IntervalClass } from './data/interval-class.js';
+
+const duration = 1.5;
+
+const interval = new IntervalClass();
+
+const distance = Math.floor(Math.random() * 8);
+
+interval.setSecondNote(distance);
+
+const firstNote = interval.getFirstNote();
+const secondNote = interval.getSecondNote();
+
 
 const button = document.getElementById('bweh');
 
@@ -10,11 +24,11 @@ const instrument = findById(instruments, 'trumpet');
 
 
 button.addEventListener('click', () => {
-    playNote(instrument, 'A1', 2);
+    playInterval(firstNote, secondNote, instrument, duration);
 });
 
 
-function playNote(instrument, note, duration) {
+export function playNote(instrument, note, duration) {
 
     let env = new p5.Envelope();
     let filterEnv = new p5.Envelope();
@@ -62,7 +76,7 @@ function playNote(instrument, note, duration) {
     osc.connect(filter);
 
     osc.setType(instrument.oscType);
-    osc.amp(.5);
+    osc.amp(1);
 
     const frequency = notes[note];
     osc.freq(frequency);
