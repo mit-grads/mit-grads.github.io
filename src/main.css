@@ -10,6 +10,15 @@ header {
     height: auto;
 }
 
+.top-bar {
+    display: flex;
+    width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1{
     font-family: 'Red Hat Display', sans-serif;
     font-size: 2em;
@@ -22,7 +31,13 @@ h2{
 }
 
 button {
-    margin: 10px;
+    border: 3px solid #4C4B63;
+    background-color:#ABA8B2;
+    color: #4C4B63;
+    font-size: 1.2rem;
+    margin: 3vh;
+    height: 40px;
+    font-weight: 800;
     transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
 }
 
