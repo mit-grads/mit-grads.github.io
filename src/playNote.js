@@ -77,7 +77,7 @@ export function playNote(instrument, note, duration) {
     osc.connect(filter);
 
     osc.setType(instrument.oscType);
-    osc.amp(1);
+    osc.amp(.5);
 
     const noteObject = notesArrayObjects.find((element) => {
         return element.name === note;

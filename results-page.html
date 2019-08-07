@@ -11,7 +11,16 @@
     <body>
         <header>
             <div class="top-bar">
-                <h2><a href="/">Music Interval Trainer</a></h2>
+                <h2>
+                    <a href="/">
+                        <img src="assets/MIT-logo.png" alt="">
+                        <div>
+                            <span class="first-letter">M</span>usic
+                            <span class="first-letter">I</span>nterval
+                            <span class="first-letter">T</span>rainer
+                        </div>
+                    </a>
+                </h2>
             </div>
         </header>
         <main>
@@ -19,42 +28,14 @@
                 <h1>Quiz Results</h1>
                 <h2><span id="user-name"></span>, you got 
                     <span id="user-correct-answers"></span> intervals correct out of 
-                    <span id="number-of-rounds"></span> chances!</h2>
+                    <span id="number-of-rounds"></span> attempts!</h2>
             </div>
             <div class="container">
                 <p>
                     Take A Look At The Results Below To See What Intervals You
                     Had Trouble With
                 </p>
-                <table id="results-table">
-                    <thead>
-                        <th>Interval</th>
-                        <th>Correct</th>
-                        <th>Attempts</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Major 3rd</td>
-                            <td>2</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Perfect 4th</td>
-                            <td>1</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Major 7th</td>
-                            <td>2</td>
-                            <td>4</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <th>Total</th>
-                        <th>5</th>
-                        <th>10</th>
-                    </tfoot>
-                </table>
+                <table id="results-table"></table>
             </div>
 
         </main>

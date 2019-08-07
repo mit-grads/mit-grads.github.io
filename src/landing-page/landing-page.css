@@ -9,6 +9,7 @@
     height: calc(100% - 10px);
     transition: 300ms;
     transition-timing-function: ease-in-out;
+    cursor: pointer;
 }
 #staff-place-holder img:hover {
     position: relative;

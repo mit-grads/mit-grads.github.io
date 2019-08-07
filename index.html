@@ -11,17 +11,24 @@
     <body>
         <header>
             <div class="top-bar">
-                <h2><a href="/">Music Interval Trainer</a></h2>
+                <h2>
+                    <a href="/">
+                        <img src="assets/MIT-logo.png" alt="">
+                        <div>
+                            <span class="first-letter">M</span>usic
+                            <span class="first-letter">I</span>nterval
+                            <span class="first-letter">T</span>rainer
+                        </div>
+                    </a>
+                </h2>
             </div>
         </header>
         <main>
             <div class="container">
-                <!-- to be hidden after landing -->
                 <div id="staff-place-holder">
                     <img src="assets/score.svg" alt="image of a musical score">
                 </div>
-                <div id="instructions" class="not-hidden">
-                    <!-- to be hidden on first landing -->
+                <div id="instructions" class="hidden">
                     <h2>Welcome to MIT</h2>
                     <ul>
                         <li>On the next page, a series of ten intervals will be
@@ -42,9 +49,6 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <p>&copy MIT Grads</p>
-        </footer>
         <script src="./src/landing-page/landing-page.js" type="module"></script>
     </body>
 </html>
