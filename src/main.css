@@ -18,6 +18,10 @@ header {
     flex-direction: column;
     align-items: center;
 }
+.top-bar a, .top-bar a:visited, .top-bar a:hover  {
+    color: #4C4B63;
+    text-decoration:none;
+}
 
 h1{
     font-family: 'Red Hat Display', sans-serif;
