@@ -46,3 +46,4 @@ test('render TFoot html', assert => {
     assert.equal(html, expected);
 });
 
+
