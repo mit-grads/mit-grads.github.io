@@ -4,6 +4,7 @@ import { instruments } from '../data/instrument.js';
 import { IntervalClass } from '../data/interval-class.js';
 import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
+import { captureResults } from '../quiz-page/capture-results.js';
 
 
 const playIntervalButton = document.getElementById('play-interval-button');
@@ -12,13 +13,12 @@ const nextButton = document.getElementById('next-button');
 
 const interval = new IntervalClass();
 
+let answerButtons;
 let roundCounter = 0;
 let correctAnswer;
 let playCallback;
 
 quizRound();
-
-
 
 function quizRound() {
     const distance = Math.floor(Math.random() * 8);
@@ -67,26 +67,23 @@ function quizRound() {
         }
     }
 
-}
 
-const answerButtons = document.getElementsByClassName('answer-button');
-[...answerButtons].forEach((button) => {
-    button.addEventListener('click', () => {
-        [...answerButtons].forEach((button) => {
-            button.classList.remove('selected');
+    answerButtons = document.getElementsByClassName('answer-button');
+    [...answerButtons].forEach((button) => {
+        button.addEventListener('click', () => {
+            [...answerButtons].forEach((button) => {
+                button.classList.remove('selected');
+            });
+            button.classList.add('selected');
         });
-        button.classList.add('selected');
     });
-});
 
-
-
+}
 
 
 let resultsArray = [];
 
-nextButton.addEventListener('click', (playCallback) => {
-
+nextButton.addEventListener('click', () => {
     let selectedButton;
     const buttons = [...answerButtons];
     for(let i = 0; i < buttons.length; i++) {
@@ -95,55 +92,11 @@ nextButton.addEventListener('click', (playCallback) => {
         }
     }
 
-
-
-    for(let i = 0; i <= resultsArray.length; i++) {
-
-        if(resultsArray.length > 0) {
-
-            if(resultsArray[i].interval === selectedButton) {
-                resultsArray[i].attempts++;
-
-                if(selectedButton === correctAnswer) {
-                    resultsArray[i].correct++;
-                }
-                break;
-            } else {
-                const answerObj = {
-                    interval: selectedButton,
-                    correct: 0,
-                    attempts: 1
-                };
-
-                if(selectedButton === correctAnswer) {
-                    answerObj.correct++;
-                }
-                resultsArray.push(answerObj);
-                break;
-            }
-        } else {
-            const answerObj = {
-                interval: selectedButton,
-                correct: 0,
-                attempts: 1
-            };
-
-            if(selectedButton === correctAnswer) {
-                answerObj.correct++;
-            }
-            resultsArray.push(answerObj);
-            break;
-
-
-        }
-
-    }
+    resultsArray = captureResults(correctAnswer, selectedButton, resultsArray);
 
     while(choiceSection.firstChild) {
         choiceSection.removeChild(choiceSection.firstChild);
     }
-
-
 
     roundCounter++;
     console.log(roundCounter, resultsArray);
@@ -152,3 +105,49 @@ nextButton.addEventListener('click', (playCallback) => {
 });
 
 
+
+
+    // if(resultsArray.length === 0) {
+    //     console.log('zero');
+    //     const answerObj = {
+    //         interval: correctAnswer,
+    //         correct: 0,
+    //         attempts: 1
+    //     };
+
+    //     if(selectedButton === correctAnswer) {
+    //         answerObj.correct++;
+    //     }
+    //     resultsArray.push(answerObj);
+    // } else {
+    //     let found = false;
+    //     // console.log('not zero');
+    //     debugger;
+    //     for(let i = 0; i < resultsArray.length; i++) {
+
+    //         // console.log(resultsArray[i].interval === correctAnswer);
+    //         if(resultsArray[i].interval === correctAnswer) {
+    //             // console.log('match');
+    //             resultsArray[i].attempts++;
+
+    //             if(selectedButton === correctAnswer) {
+    //                 resultsArray[i].correct++;
+    //                 found = true;
+    //             }
+    //         }
+    //     }
+
+    //     if(!found) {
+    //         // console.log('not match');
+    //         const answerObj = {
+    //             interval: correctAnswer,
+    //             correct: 0,
+    //             attempts: 1
+    //         };
+
+    //         if(selectedButton === correctAnswer) {
+    //             answerObj.correct++;
+    //         }
+    //         resultsArray.push(answerObj);
+    //     }
+    // }
