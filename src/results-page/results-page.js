@@ -1,62 +1,29 @@
-import { storage } from '../data/storage.js';
+import { renderTHead, renderTBody, renderTFoot } from '/src/results-page/render-results-page.js';
+import { storage } from '/src/data/storage.js';
 
+const userName = document.getElementById('user-name');
+const userCorrectAnswers = document.getElementById('user-correct-answers');
+const numberOfRounds = document.getElementById('number-of-rounds');
 const resultsTable = document.getElementById('results-table');
 
-export function renderTable() {
+const userInfo = storage.getCurrentUserInfo();
+const quizResults = storage.getQuizResults();
+
+let totalCorrect = 0;
+let totalAttempts = 0;
+quizResults.forEach(element => {
+    totalCorrect += element.correct;
+    totalAttempts += element.attempts;
+});
+
+userName.textContent = userInfo.name;
+userCorrectAnswers.textContent = totalCorrect;
+numberOfRounds.textContent = totalAttempts;
+renderTable(quizResults);
+
+
+function renderTable(quizResults) {
     resultsTable.appendChild(renderTHead());
-    // resultsTable.appendChild(renderTBody());
-    // resultsTable.appendChild(renderTFoot());
-}
-
-export function renderTHead() {
-    const headerRow = document.createElement('thead');
-    const headerCell1 = document.createElement('th');
-    const headerCell2 = document.createElement('th');
-    const headerCell3 = document.createElement('th');
-    headerRow.appendChild(headerCell1);
-    headerRow.appendChild(headerCell2);
-    headerRow.appendChild(headerCell3);
-    headerCell1.textContent = 'Interval';
-    headerCell2.textContent = 'Correct';
-    headerCell3.textContent = 'Attempts';
-    return headerRow;
-}
-
-export function renderTBody(results) {
-    const tBody = document.createElement('tbody');
-
-    results.forEach(element => {
-        const tRow = document.createElement('tr');
-        const tData1 = document.createElement('td');
-        const tData2 = document.createElement('td');
-        const tData3 = document.createElement('td');
-        tData1.textContent = element.interval;
-        tData2.textContent = element.correct;
-        tData3.textContent = element.attempts;
-        tRow.appendChild(tData1);
-        tRow.appendChild(tData2);
-        tRow.appendChild(tData3);
-        tBody.appendChild(tRow);
-    });
-    return tBody;
-}
-
-export function renderTFoot(results) {
-    const tFoot = document.createElement('tfoot');
-    const footCell1 = document.createElement('th'); 
-    const footCell2 = document.createElement('th'); 
-    const footCell3 = document.createElement('th');
-    footCell1.textContent = 'Total';
-    let totalCorrect = 0;
-    let totalAttempts = 0;
-    results.forEach(element => {
-        totalCorrect += element.correct;
-        totalAttempts += element.attempts;
-    });
-    footCell2.textContent = totalCorrect;
-    footCell3.textContent = totalAttempts;
-    tFoot.appendChild(footCell1);
-    tFoot.appendChild(footCell2);
-    tFoot.appendChild(footCell3);
-    return tFoot;
+    resultsTable.appendChild(renderTBody(quizResults));
+    resultsTable.appendChild(renderTFoot(totalCorrect, totalAttempts));
 }

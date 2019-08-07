@@ -1,4 +1,4 @@
-import { renderTHead, renderTBody, renderTFoot } from '../src/results-page/results-page.js';
+import { renderTHead, renderTBody, renderTFoot } from '../src/results-page/render-results-page.js';
 
 const test = QUnit.test;
 
@@ -54,7 +54,7 @@ test('render TFoot html', assert => {
         attempts: 4
     }];
 
-    const dom = renderTFoot(results);
+    const dom = renderTFoot(5, 10);
     const html = dom.outerHTML;
 
     assert.equal(html, expected);
