@@ -98,3 +98,11 @@ footer p {
 .hidden {
     display: none;
 }
+
+.container {
+    width:1000px ;
+    margin:50px auto;
+}
+#about {
+    margin-bottom:20px;
+}
