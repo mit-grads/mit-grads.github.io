@@ -6,10 +6,10 @@ QUnit.module('render results page');
 
 test('render THead html', assert => {
     const expected = '<thead><th>Interval</th><th>Correct</th><th>Attempts</th></thead>';
-    
+
     const dom = renderTHead();
     const html = dom.outerHTML;
-    
+
     assert.equal(html, expected);
 });
 
@@ -38,22 +38,8 @@ test('render TBody html', assert => {
 
 
 test('render TFoot html', assert => {
-    
-    const expected = '<tfoot><th>Total</th><th>5</th><th>10</th></tfoot>';
-    const results = [{
-        interval: 'Major 3rd',
-        correct: 2,
-        attempts: 3
-    }, {
-        interval: 'Perfect 4th',
-        correct: 1,
-        attempts: 3
-    }, {
-        interval: 'Major 7th',
-        correct: 2,
-        attempts: 4
-    }];
 
+    const expected = '<tfoot><th>Total</th><th>5</th><th>10</th></tfoot>';
     const dom = renderTFoot(5, 10);
     const html = dom.outerHTML;
 

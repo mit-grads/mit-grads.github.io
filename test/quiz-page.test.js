@@ -24,7 +24,7 @@ test('if played interval is not in array, push interval object', assert => {
     const expected = {
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     };
 
     const correctAnswer = 'major second';
@@ -46,7 +46,7 @@ test('correct answer', assert => {
     const expected = {
         interval: 'major second',
         correct: 1,
-        attempt: 1,
+        attempts: 1,
     };
 
     const correctAnswer = 'major second';
@@ -69,11 +69,11 @@ test('object not found in non empty array', assert => {
     const expected = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }, {
         interval: 'major third',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }
     ];
 
@@ -82,7 +82,7 @@ test('object not found in non empty array', assert => {
     const resultsArray = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }];
 
     // act
@@ -100,11 +100,11 @@ test('correct answer', assert => {
     const expected = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }, {
         interval: 'major third',
         correct: 1,
-        attempt: 1,
+        attempts: 1,
     }
     ];
 
@@ -113,7 +113,7 @@ test('correct answer', assert => {
     const resultsArray = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }];
 
     // act
@@ -130,7 +130,7 @@ test('object found in non empty array', assert => {
     const expected = [{
         interval: 'major second',
         correct: 0,
-        attempt: 2,
+        attempts: 2,
     }];
 
     const correctAnswer = 'major second';
@@ -138,7 +138,7 @@ test('object found in non empty array', assert => {
     const resultsArray = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }];
 
     // act
@@ -155,7 +155,7 @@ test('object correct', assert => {
     const expected = [{
         interval: 'major second',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }];
 
     const correctAnswer = 'major second';
@@ -163,7 +163,7 @@ test('object correct', assert => {
     const resultsArray = [{
         interval: 'major second',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }];
 
     // act
@@ -181,23 +181,23 @@ test('second found object', assert => {
     const expected = [{
         interval: 'major second',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'major third',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'perfect fourth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'perfect fifth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'major sixth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     },
 
 
@@ -209,23 +209,23 @@ test('second found object', assert => {
     const resultsArray = [{
         interval: 'major second',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'major third',
         correct: 0,
-        attempt: 1,
+        attempts: 1,
     }, {
         interval: 'perfect fourth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'perfect fifth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     }, {
         interval: 'major sixth',
         correct: 1,
-        attempt: 2,
+        attempts: 2,
     },
     ];
     // act
