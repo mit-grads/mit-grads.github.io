@@ -16,33 +16,39 @@
         </header>
         <main>
             <div class="container">
-                <h1>You got <span id="user-correct-answers"></span> out of <span
-                        id="number-of-rounds"></span> Correct!</h1>
+                <h1>Quiz Results</h1>
+                <h2><span id="user-name"></span>, you got 
+                    <span id="user-correct-answers"></span> intervals correct out of 
+                    <span id="number-of-rounds"></span> chances!</h2>
             </div>
             <div class="container">
-                <h2>Take A Look At The Results Below To See What Intervals You
-                    Had Trouble With</h2>
-                <table>
+                <p>
+                    Take A Look At The Results Below To See What Intervals You
+                    Had Trouble With
+                </p>
+                <table id="results-table">
                     <thead>
-                        <th>Interval Name</th>
-                        <th>Correctly Identified</th>
-                        <th>Was Played</th>
+                        <th>Interval</th>
+                        <th>Correct</th>
+                        <th>Attempts</th>
                     </thead>
-                    <tr>
-                        <td>Major 3rd</td>
-                        <td>2</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Perfect 4th</td>
-                        <td>1</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Major 7th</td>
-                        <td>2</td>
-                        <td>4</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Major 3rd</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Perfect 4th</td>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Major 7th</td>
+                            <td>2</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
                     <tfoot>
                         <th>Total</th>
                         <th>5</th>
