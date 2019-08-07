@@ -7,7 +7,7 @@ const numberOfRounds = document.getElementById('number-of-rounds');
 const resultsTable = document.getElementById('results-table');
 
 const userInfo = storage.getCurrentUserInfo();
-const quizResults = storage.getQuizResults();
+const quizResults = storage.getQuizResults(userInfo.name);
 
 let totalCorrect = 0;
 let totalAttempts = 0;

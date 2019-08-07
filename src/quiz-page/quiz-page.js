@@ -5,13 +5,15 @@ import { IntervalClass } from '../data/interval-class.js';
 import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
 import { captureResults } from '../quiz-page/capture-results.js';
-
+import { storage } from '../data/storage.js';
 
 const playIntervalButton = document.getElementById('play-interval-button');
 const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
 
 const interval = new IntervalClass();
+
+let roundCount = 10;
 
 let answerButtons;
 let roundCounter = 0;
@@ -99,8 +101,15 @@ nextButton.addEventListener('click', () => {
     }
 
     roundCounter++;
-    console.log(roundCounter, resultsArray);
-    quizRound();
+    if(roundCounter < roundCount) {
+        quizRound();
+    } else {
+        const currentUser = storage.getCurrentUserInfo();
+        storage.saveQuizResults(resultsArray, currentUser.name);
+        window.location = 'results-page.html';
+
+    }
+
 
 });
 

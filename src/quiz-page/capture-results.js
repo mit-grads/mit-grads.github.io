@@ -5,7 +5,7 @@ export function captureResults(correctAnswer, selected, resultsArray) {
     for(let i = 0; i < resultsArray.length; i++) {
         if(resultsArray[i].interval === correctAnswer) {
             found = true;
-            resultsArray[i].attempt++;
+            resultsArray[i].attempts++;
 
             if(correctAnswer === selected) {
                 resultsArray[i].correct++;
@@ -17,7 +17,7 @@ export function captureResults(correctAnswer, selected, resultsArray) {
         const intervalObj = {
             interval: correctAnswer,
             correct: 0,
-            attempt: 1
+            attempts: 1
         };
         if(correctAnswer === selected) {
             intervalObj.correct++;
