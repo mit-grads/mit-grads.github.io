@@ -1,13 +1,10 @@
 
 
-input {
-    display: none;
-}
-
-.choices label div {
+.choices div {
     display: inline-block;
     border: 3px solid #4C4B63;
     background-color:#ABA8B2;
+    text-align: center;
     margin: 10px;
     height:50px;
     width:100px;
@@ -15,9 +12,15 @@ input {
 
 }
 
-.choices label div:hover {
+.choices div:hover {
     transform: translate(-2px, -2px);
     background-color: #EFEFEF;
+    box-shadow:2px 2px 5px 1px #ABA8B2;
+    color: black;
+}
+
+.choices div.selected {
+    background-color: rgb(232, 140, 140);
     box-shadow:2px 2px 5px 1px #ABA8B2;
     color: black;
 }
