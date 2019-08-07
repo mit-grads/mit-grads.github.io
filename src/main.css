@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Blinker|Red+Hat+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Blinker|Oleo+Script|Red+Hat+Display&display=swap');
 
 body {
     margin: 0 0 0 0;
 }
 
 header {
-    background-color: #6893E2;
+    background-color: lightsteelblue;
+    background-image: linear-gradient(to bottom right, #4C4B63, #6893E2, lightsteelblue);
     width: 100%;
     height: auto;
 }
@@ -15,12 +16,31 @@ header {
     width: 100vw;
     margin-right: auto;
     margin-left: auto;
-    flex-direction: column;
     align-items: center;
 }
 .top-bar a, .top-bar a:visited, .top-bar a:hover  {
-    color: #4C4B63;
     text-decoration:none;
+}
+.top-bar a {
+    display: flex;
+}
+.top-bar img {
+    height: 80px;
+    margin: 10px;
+    margin-left: 20px;
+    opacity: 0.8;
+    border-radius: 3px;
+}
+.top-bar div {
+    padding-top: 10px;
+    align-self: center;
+    color: black;
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+	opacity: 0.45;
+}
+.top-bar a .first-letter {
+    font-family: 'Oleo Script', sans-serif;
+    font-size: 1.7em;
 }
 
 h1{
@@ -31,13 +51,15 @@ h1{
 h2{
     font-family: 'Red Hat Display', sans-serif;
     font-size: 1.5em;
-    margin:0 0 0 0;
+    margin: 0 0 0 0;
 }
-p {
+p, ul, li {
     font-family: 'Red Hat Display', sans-serif;
+    /* font-family: 'Blinker', sans-serif; */
     font-size: 1em;
     margin:0 0 0 0;
 }
+
 
 button {
     border: 3px solid #4C4B63;
@@ -49,13 +71,13 @@ button {
     font-weight: 800;
     transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
 }
-
 button:hover {
     transform: translate(-2px, -2px);
     background-color: #EFEFEF;
     box-shadow:2px 2px 5px 1px #ABA8B2;
     color: black;
 }
+
 
 footer {
     background-color: #6893E2;
@@ -65,13 +87,13 @@ footer {
     display: flex;
     flex-direction: row-reverse;
 }
-
 footer p {
     display: inline-block;
     padding-right: 20px;
     font-family: 'Blinker', sans-serif;
     color:#4C4B63;
 }
+
 
 .hidden {
     display: none;
