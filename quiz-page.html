@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quiz Page</title>
-    <link rel="stylesheet" type="text/css" href="./src/main.css">
-    <link rel="stylesheet" type="text/css" href="./src/quiz-page/quiz-page.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>M.I.T.</h1>
-            <h2>The Musical Interval Trainer</h2>
-        </div>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Quiz Page</title>
+        <link rel="stylesheet" type="text/css" href="./src/main.css">
+        <link rel="stylesheet" type="text/css"
+            href="./src/quiz-page/quiz-page.css">
+    </head>
     <body>
-        <div class="container">
-            <button>Play Interval</button>
-            <section class="choices">
-                <label for="choice"><img src="https://via.placeholder.com/150"></label>
-                <input type="radio" name=choice>
-                <label for="choice"><img src="https://via.placeholder.com/150"></label>
-                <input type="radio" name=choice>
-                <label for="choice"><img src="https://via.placeholder.com/150"></label>
-                <input type="radio" name=choice>
-            </section>  
-            <button>Next</button>
-        </div>
-    </body>
-    <footer>
+        <header>
+            <div class="top-bar">
+                <h2><a href="/">Music Interval Trainer</a></h2>
+            </div>
+        </header>
+        <body>
+            <div class="answer-container">
+                <button id="play-interval-button">Play Interval</button>
+                <section id="choice-section" class="choices"></section>
+                <button>Next</button>
+            </div>
+        </body>
+        <footer>
             <p class="right-justification"><a>&copy MIT Grads</a></p>
-    </footer>
-</body>
+        </footer>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
+            integrity="sha256-WVsM3xrcqyuFNF3W1qtIKbHFsD0977nDQA8DCMp1zCw="crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"
+            integrity="sha256-GdlroanCXFgv0ILaTQ1v0qnNxc+FQNjjXADWxmtr7PM="crossorigin="anonymous"></script>
+        <script src="./src/quiz-page/quiz-page.js" type="module"></script>
+    </body>
 </html>
