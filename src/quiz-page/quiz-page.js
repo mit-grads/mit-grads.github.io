@@ -24,18 +24,6 @@ playIntervalButton.addEventListener('click', () => {
     playInterval(firstNote, secondNote, instrument, intervalType, duration);
 });
 
-//make array with correct answer, and two other answers
-//get random number 0-8 different than distance/different than itself
-//build array with three answers
-//shuffle array
-//create dom based on array
-//select is always on right
-
-//to know if right answer
-//variable correct answer
-
-
-
 
 let answerOptionsArray = [];
 
@@ -50,15 +38,6 @@ answerOptionsArray.push(correctAnswer);
 answerOptionsArray.push(answer1);
 answerOptionsArray.push(answer2);
 
-
-// Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
-function shuffle(arr) { 
-    for(let i = arr.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
 answerOptionsArray = shuffle(answerOptionsArray);
 
 for(let i = 0; i < answerOptionsArray.length; i++) {
@@ -71,4 +50,24 @@ for(let i = 0; i < answerOptionsArray.length; i++) {
     }
 }
 
+const answerButtons = document.getElementsByClassName('answer-button');
+[...answerButtons].forEach((button) => {
+    button.addEventListener('click', () => {
+        [...answerButtons].forEach((button) => {
+            button.classList.remove('selected');
+        });
+        button.classList.add('selected');
+    });
+});
 
+
+
+// Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
+
+function shuffle(arr) { 
+    for(let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}

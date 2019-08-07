@@ -1,25 +1,17 @@
 
 
-export function renderAnswerOption(answer, checked = false){
+export function renderAnswerOption(answer, checked = false) {
     const div = document.createElement('div');
-
-    const label = document.createElement('label');
-    label.htmlFor = 'choice';
-    const intervalDiv = document.createElement('div');
+    // const intervalDiv = document.createElement('div');
     const intervalP = document.createElement('p');
     const intervalText = document.createTextNode(answer);
     intervalP.appendChild(intervalText);
-    intervalDiv.appendChild(intervalP);
-    label.appendChild(intervalDiv);
-    div.appendChild(label);
-
-    const input = document.createElement('input');
-    input.type = 'radio';
-    input.name = 'choice';
+    // intervalDiv.appendChild(intervalP);
     if(checked) {
-        input.checked = true;
+        div.className = 'selected';
     }
-    div.appendChild(input);
+    div.appendChild(intervalP);
+    div.className += ' answer-button';
 
     return div;
 }
