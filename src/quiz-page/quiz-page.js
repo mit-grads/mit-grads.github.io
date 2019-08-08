@@ -33,7 +33,7 @@ quizRound();
 
 function disableNextButton() {
     const isButtonSelected = document.getElementsByClassName('selected');
-    if(isButtonSelected.length === 0) {
+    if (isButtonSelected.length === 0) {
         nextButton.disabled = true;
     }
 }
@@ -52,6 +52,11 @@ function quizRound() {
     const intervalType = 'melodic';
 
     playIntervalButton.removeEventListener('click', playCallback);
+
+    setTimeout(() => {
+        playInterval(firstNote, secondNote, instrument, intervalType, duration);
+    }, 1000);
+
 
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
@@ -76,7 +81,7 @@ function quizRound() {
 
     answerOptionsArray = shuffle(answerOptionsArray);
 
-    for(let i = 0; i < answerOptionsArray.length; i++) {
+    for (let i = 0; i < answerOptionsArray.length; i++) {
         const dom = renderAnswerOption(answerOptionsArray[i]);
         choiceSection.appendChild(dom);
     }
@@ -99,21 +104,21 @@ nextButton.addEventListener('click', () => {
     let selectedButton;
     renderedRoundNumber.textContent = +roundCounter + 2;
     const buttons = [...answerButtons];
-    for(let i = 0; i < buttons.length; i++) {
-        if(buttons[i].className === 'answer-button selected') {
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].className === 'answer-button selected') {
             selectedButton = buttons[i].id;
         }
     }
 
     resultsArray = captureResults(correctAnswer, selectedButton, resultsArray);
 
-    while(choiceSection.firstChild) {
+    while (choiceSection.firstChild) {
         choiceSection.removeChild(choiceSection.firstChild);
     }
 
     roundCounter++;
 
-    if(roundCounter < roundCount) {
+    if (roundCounter < roundCount) {
         quizRound();
     } else {
 
