@@ -13,15 +13,15 @@ const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
 const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
+const instructionsDisplay = document.getElementById('instructions-display');
 const currentUserInfo = storage.getCurrentUserInfo();
-
 
 const interval = new IntervalClass();
 
 let totalRounds = 10;
 let roundCounter = 0;
 let roundCounterRendered = roundCounter;
-
+let instructionsVisible = false;
 let answerButtons;
 let correctAnswer;
 let playCallback;
@@ -31,8 +31,21 @@ renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
 
-
 quizRound();
+
+instructionsDisplay.addEventListener('click', () => {
+    const instructionsSlider = document.querySelector('.instructions-slider');
+    if(instructionsVisible) {
+        instructionsSlider.classList.remove('displayed');
+        instructionsDisplay.textContent = 'View Instructions';
+        instructionsVisible = false;
+    }
+    else {
+        instructionsSlider.classList.add('displayed');
+        instructionsDisplay.textContent = 'Hide Instructions';
+        instructionsVisible = true;
+    }
+});
 
 function disableNextButton() {
     const isButtonSelected = document.getElementsByClassName('selected');
