@@ -2,3 +2,27 @@ body {
     max-width: 1000px;
     margin: auto;
 }
+
+figure {
+    margin: 0;
+}
+
+.bios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.mii {
+    width: 190px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: rgb(255, 239, 193);
+}
+
+figcaption {
+    font-size: 2em;
+    margin-left: 40px;
+}

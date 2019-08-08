@@ -4,13 +4,22 @@ body {
 }
 main {
     position: relative;
-    background-color: #aaaaaa;
+    background-image: linear-gradient(to right, #aaaaaa, #ccc);
 }
 figure {
     margin: 0;
 }
 li {
     font-family: 'Blinker', sans-serif;
+}
+.intervals-list {
+    height: 9em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.intervals-list li {
+    margin-left: 20px;
 }
 
 
@@ -61,7 +70,7 @@ li {
     align-items: flex-start;
     position: absolute;
     top: 0;
-    background-color: #aaaaaa;
+    background-image: linear-gradient(to right, #aaaaaa, #ccc);
     opacity: 0;
     transition: opacity 0.4s;
     transition-delay: 0.3s;
@@ -73,6 +82,7 @@ li {
     z-index: 1;
 }
 #instructions h2 {
+    font-size: 2rem;
     margin: 10px;
 }
 
