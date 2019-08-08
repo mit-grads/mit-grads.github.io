@@ -1,10 +1,12 @@
 body {
+    background-image: url("/assets/yellow-parchment_53876-91513.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: auto;
     max-width: 1000px;
 }
 main {
     position: relative;
-    background-image: linear-gradient(to right, #aaaaaa, #ccc);
 }
 figure {
     margin: 0;
@@ -67,10 +69,9 @@ li {
     margin-left: auto;
     padding-left: 5%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     position: absolute;
-    top: 0;
-    background-image: linear-gradient(to right, #aaaaaa, #ccc);
+    top: 4rem;
     opacity: 0;
     transition: opacity 0.4s;
     transition-delay: 0.3s;
@@ -86,7 +87,16 @@ li {
     margin: 10px;
 }
 
+/* #intervals {
+    margin: 30px;
+}
+
+#intervals-list {
+    margin-left: 0;
+} */
+
 #landing-page-form input {
+#landing-page-form #user-name {
     height: 34px;
     width: 200px;
     margin-top: 2vh;
