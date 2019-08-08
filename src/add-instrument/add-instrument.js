@@ -1,6 +1,6 @@
 import { playNote } from '../playNote.js';
+import { storage } from '../data/storage.js';
 
-//const instrumentForm = document.getElementById('instrument-input-form');
 const playButton = document.getElementById('play');
 const oscWaveform = document.getElementById('osc-waveform');
 const oscAttack = document.getElementById('osc-attack');
@@ -18,12 +18,20 @@ const filterRelease = document.getElementById('filter-release');
 const distortionMix = document.getElementById('distortion-mix');
 const distortionAmount = document.getElementById('distortion-amount');
 const distortionOversample = document.getElementById('distortion-oversample');
-
 const delayAmount = document.getElementById('delay-amount');
 const delayTime = document.getElementById('delay-time');
 const delayFeedback = document.getElementById('delay-feedback');
 const delayFilter = document.getElementById('delay-filter');
+const submitButton = document.getElementById('submit');
+const submissionName = document.getElementById('submission-name');
+const presetContainer = document.getElementById('preset-ul');
 
+storage.preLoadInstruments();
+
+const storedInstruments = storage.getInstruments();
+storedInstruments.forEach((instrument) => {
+    newLine(instrument.id, instrument.name);
+});
 
 
 function getInstrument() {
@@ -54,5 +62,27 @@ function getInstrument() {
 playButton.addEventListener('click', () => {
     const instrument = getInstrument();
     playNote(instrument, 'A1', instrument.oscRelease);
-
 });
+
+submitButton.addEventListener('click', () => {
+    const newInstrument = getInstrument();
+    newInstrument.name = submissionName.value;
+    newInstrument.id = `${submissionName.value}-id`;
+    storage.addCurrentInstrumentData(newInstrument);
+    newLine(newInstrument.id, newInstrument.name);
+    submissionName.value = '';
+});
+
+
+
+function newLine(id, name) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    button.id = id;
+    button.textContent = name;
+    button.className = 'preset';
+    li.appendChild(button);
+    presetContainer.appendChild(li);
+}
+
+// const presetButtons = document.getElementsByClassName('preset');

@@ -1,15 +1,17 @@
-form {
+#main {
     display:flex;
 }
 
 .block {
-    padding:0 20px 20px 20px;
+    padding:0 20px 5px 20px;
     border: 3px solid darkcyan;
     margin:20px;
     text-align: left;
 }
 h2{
     margin-bottom:10px;
+    margin-left: 10px;
+    font-size:1.1em;
 }
 
 label{
@@ -24,7 +26,27 @@ input, select{
     display:flex;
     flex-direction: column;
     width: 300px;
-    height:200px;
+    height:auto;
     justify-content: center;
     text-align: center;
+}
+#play, #submit {
+    margin:5px;
+}
+li {
+    list-style-type: none;
+}
+
+.preset{
+    margin:10px;
+    width: auto;
+    min-width:150px;
+}
+
+#preset-ul {
+    margin-top:10px;
+    padding:0 0 0 0;
+}
+#instruments {
+    margin-top: 15px;
 }

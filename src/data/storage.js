@@ -45,6 +45,7 @@ export const storage = {
         return [];
     },
     preLoadInstruments() {
+        this.save(INSTRUMENTS_KEY, '');
         instruments.forEach((instrument) => {
             this.addCurrentInstrumentData(instrument);
         });
