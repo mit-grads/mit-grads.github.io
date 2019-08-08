@@ -45,6 +45,7 @@ function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
+    
     //get user info:
      //if userinfo.random first note = true
     //set first note is equal to random, 
@@ -161,6 +162,4 @@ nextButton.addEventListener('click', () => {
         storage.saveQuizResults(resultsArray, currentUser.name);
         window.location = 'results-page.html';
     }
-
-
 });
