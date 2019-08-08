@@ -22,16 +22,16 @@ test('test get results data when quiz results are empty', assert => {
 });
 
 test('test save and get quiz results', assert => {
-    const expected = [{ 
-        code: 'interval-1', 
+    const expected = [{
+        code: 'interval-1',
         timesShown: 1,
         timesCorrect: 1
     }, {
-        code: 'interval-2', 
+        code: 'interval-2',
         timesShown: 0,
         timesCorrect: 0
     }, {
-        code: 'interval-3', 
+        code: 'interval-3',
         timesShown: 6,
         timesCorrect: 2
     }];
@@ -39,3 +39,75 @@ test('test save and get quiz results', assert => {
     assert.deepEqual(storage.getQuizResults(), expected);
 });
 
+
+test('get preloaded instruments', assert => {
+
+    // arrange
+    const expected = {
+        id: 'trumpet',
+        name: 'Trumpet',
+        filterType: 'low pass',
+        oscWaveform: 'sawtooth',
+        filterStartLevel: 1,
+        filterEndLevel: 0,
+        oscAttack: 0.01,
+        oscDecay: 0.2,
+        oscSustain: 0.75,
+        oscRelease: 1.5,
+        filterAttack: 0.01,
+        filterDecay: 0.2,
+        filterSustain: .75,
+        filterRelease: 1.5,
+        filterFrequency: 2000,
+        distortionMix: 0,
+        distortionAmount: 0.001,
+        distortionOversample: 'none',
+        delayAmount: 0,
+        delayTime: 0.001,
+        delayFeedback: 0.001,
+        delayFilter: 0,
+    };
+
+    // act
+    storage.preLoadInstruments();
+    const result = storage.getInstruments();
+
+    // assert
+    assert.deepEqual(result[0], expected);
+});
+
+test('save instrument', assert => {
+
+    // arrange
+    const expected = {
+        id: 'test',
+        name: 'Test',
+        filterType: 'low pass',
+        oscWaveform: 'sawtooth',
+        filterStartLevel: 1,
+        filterEndLevel: 0,
+        oscAttack: 0.01,
+        oscDecay: 0.2,
+        oscSustain: 0.75,
+        oscRelease: 1.5,
+        filterAttack: 0.01,
+        filterDecay: 0.2,
+        filterSustain: .75,
+        filterRelease: 1.5,
+        filterFrequency: 2000,
+        distortionMix: 0,
+        distortionAmount: 0.001,
+        distortionOversample: 'none',
+        delayAmount: 0,
+        delayTime: 0.001,
+        delayFeedback: 0.001,
+        delayFilter: 0,
+    };
+
+    // act
+    storage.preLoadInstruments();
+    storage.addCurrentInstrumentData(expected);
+    const result = storage.getInstruments();
+    // assert
+    assert.deepEqual(result[1], expected);
+});

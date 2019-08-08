@@ -20,6 +20,5 @@ export function playInterval(firstNote, secondNote, instrument, type = 'melodic'
     }
 
 
-
 }
 

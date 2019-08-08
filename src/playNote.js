@@ -1,36 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { findById } from '../src/utils.js';
-import { notesArrayObjects } from '../src/data/notes.js';
-import { instruments } from '../src/data/instrument.js';
-import { playInterval } from './playInterval.js';
-import { IntervalClass } from './data/interval-class.js';
-
-const duration = 1.5;
-
-const interval = new IntervalClass();
-
-const distance = Math.floor(Math.random() * 8);
-
-interval.setSecondNote(distance);
-
-const firstNote = interval.getFirstNote();
-const secondNote = interval.getSecondNote();
-
-
-const button = document.getElementById('bweh');
-
-const instrument = findById(instruments, 'trumpet');
-
-const intervalType = 'melodic';
-
-// button.addEventListener('click', () => {
-//     playInterval(firstNote, secondNote, instrument, intervalType, duration);
-// });
-
+import { notesArrayObjects } from './data/notes.js';
 
 export function playNote(instrument, note, duration) {
-
     let env = new p5.Envelope();
     let filterEnv = new p5.Envelope();
     let osc = new p5.Oscillator();
@@ -49,41 +21,58 @@ export function playNote(instrument, note, duration) {
     }
     let attackLevel = instrument.attackLevel;
     let releaseLevel = instrument.releaseLevel;
-    let filterAttackLevel = instrument.filterAttackLevel;
-    let filterReleaseLevel = instrument.filterReleaseLevel;
+    let filterAttackLevel = instrument.filterStartLevel;
+    let filterReleaseLevel = instrument.filterEndLevel;
 
-    let oA = instrument.attackTime;
-    let oD = instrument.decayTime;
-    let oS = instrument.susPercent;
+    let oA = instrument.oscAttack;
+    let oD = instrument.oscDecay;
+    let oS = instrument.oscSustain;
     let oR = duration;
 
-    let fA = instrument.filterAttackTime;
-    let fD = instrument.filterDecayTime;
-    let fS = instrument.filterSusPercent;
-    let fR = duration;
+    let fA = instrument.filterAttack;
+    let fD = instrument.filterDecay;
+    let fS = instrument.filterSustain;
+    let fR = instrument.filterRelease;
 
     filter.freq(instrument.filterFrequency);
+
+    osc.disconnect();
 
     osc.stop();
     osc.start();
 
     env.setADSR(oA, oD, oS, oR);
-    env.setRange(attackLevel, releaseLevel);
+    env.setRange(1, 0);
 
     filterEnv.setADSR(fA, fD, fS, fR);
     filterEnv.setRange(filterAttackLevel, filterReleaseLevel);
 
-    osc.disconnect();
-    osc.connect(filter);
 
-    osc.setType(instrument.oscType);
+    osc.setType(instrument.oscWaveform);
     osc.amp(.5);
 
     const noteObject = notesArrayObjects.find((element) => {
         return element.name === note;
     });
+
     osc.freq(noteObject.frequency);
 
+    let distortion = new p5.Distortion();
+    distortion.set(instrument.distortionAmount, instrument.distortionOversample);
+    distortion.drywet(instrument.distortionMix);
+
+    let delay = new p5.Delay();
+    delay.delayTime(instrument.delayTime);
+    delay.feedback(instrument.delayFeedback);
+    delay.filter(instrument.delayFilter);
+    delay.amp(instrument.delayAmount);
+
+    filter.chain(distortion, delay);
+
+    filterEnv.setInput(filter);
+
     filterEnv.play(filter);
+    osc.connect(filter);
+
     env.play(osc);
 }
