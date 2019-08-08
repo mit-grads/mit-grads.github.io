@@ -20,3 +20,9 @@ export function shuffle(arr) {
     }
     return arr;
 }
+
+export function sortData(objArr) {
+    objArr.sort((a, b) => {
+        return (a.index) - (b.index);
+    });
+}
