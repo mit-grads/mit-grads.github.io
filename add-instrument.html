@@ -76,7 +76,8 @@
                     <p>
                         <label for='filter-frequency'>Filter frequency:</label>
                         <input id="filter-frequency" name="filter-frequency"
-                            type="range" min="0" max="20000" step="1" value="4000">
+                            type="range" min="0" max="20000" step="1"
+                            value="4000">
                     </p>
                     <p>
                         <label for="filter-start-level">Filter start level:</label>
@@ -167,10 +168,17 @@
                     </p>
                 </div>
             </div>
+            <div class="block" id="controls">
+                <button id="play">Play</button>
+                <label for="submission-name">Enter new instrument name
+                    <input id="submission-name" type="text"
+                        name="submission-name"></label>
+
+                <button id="submit">Submit Instrument</button>
+            </div>
 
         </form>
 
-        <button id="play">Play</button>
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
