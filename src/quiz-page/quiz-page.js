@@ -16,6 +16,10 @@ const renderedTotalRounds = document.getElementById('total-rounds');
 const instructionsDisplay = document.getElementById('instructions-display');
 const currentUserInfo = storage.getCurrentUserInfo();
 
+function alert() {
+    window.alert('Ready?');
+}
+window.onload = alert;
 
 let note;
 if(currentUserInfo.randomFirstNote === 'yes') {
