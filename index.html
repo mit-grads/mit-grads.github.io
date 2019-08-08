@@ -52,9 +52,66 @@
                         <li>Maj 7 = Major Seventh</li>
                         <li>P8 = Perfect Octave</li>
                     </ul>
-                <p>
+                </p>
+                <button id="show-settings-button">Show Optional Quiz Settings</button>
                 <form id="landing-page-form">
-                    <input type="text" id="user-name" autofocus placeholder="your name">
+                    <div id="settings-form" class="hidden">
+                        <p>
+                            <label for="interval-type">How Do You Want To Hear The Intervals?</label>
+                            <select name="interval-type">
+                                <option value="melodic">
+                                    Melodic
+                                </option>
+                                <option value="harmonic">
+                                    Harmonic
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="random-first-note">Do You Want The First Note To Change?</label>
+                            <select name="random-first-note">
+                                <option value="no">
+                                    No
+                                </option>
+                                <option value="yes">
+                                    Yes
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="duration">How Long Do You Want Each Note To Play?</label>
+                            <input type="range" id="duration" name="duration" min="0.5" max="3" step="0.5" value="1.5"><span id="duration-span"></span>
+                        </p>
+                        <p>
+                            <label for="play-interval-counter">How Many Times Do You Want To Be Able To Play The Interval?</label>
+                            <select name="play-interval-counter">
+                            <datalist id="interval-counter-values">
+                                <option value="Unlimited">
+                                    Unlimited Times
+                                </option>
+                                <option value="1">
+                                    Once
+                                </option>
+                                <option value="2">
+                                    Twice
+                                </option>
+                                <option value="3">
+                                    Thrice
+                                </option>
+                                <option value="4">
+                                    Four Times
+                                </option>
+                                <option value="5">
+                                    Five Times
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="number-answers">How Many Answers Do You Want To Choose From?</label>
+                            <input type="range" id="number-answers" name="number-answers" min="2" max="5" step="1" value="3"><span id="number-answers-span"></span>
+                        </p>
+                    </div>
+                    <input type="text" id="user-name" name= "user-name" autofocus placeholder="your name" required>
                     <button>Begin the Quiz</button>
                 </form>
             </div>
