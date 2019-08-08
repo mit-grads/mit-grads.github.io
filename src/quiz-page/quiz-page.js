@@ -17,14 +17,16 @@ const renderedTotalRounds = document.getElementById('total-rounds');
 
 const interval = new IntervalClass();
 
-let roundCount = 10;
+let totalRounds = 10;
 let roundCounter = 0;
+let roundCounterRendered = roundCounter;
 
 let answerButtons;
 let correctAnswer;
 let playCallback;
-renderedRoundNumber.textContent = +roundCounter + 1;
-renderedTotalRounds.textContent = roundCount;
+
+renderedRoundNumber.textContent = roundCounterRendered + 1;
+renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
 
@@ -102,7 +104,6 @@ function quizRound() {
 nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;
-    renderedRoundNumber.textContent = +roundCounter + 2;
     const buttons = [...answerButtons];
     for(let i = 0; i < buttons.length; i++) {
         if(buttons[i].className === 'answer-button selected') {
@@ -116,9 +117,15 @@ nextButton.addEventListener('click', () => {
         choiceSection.removeChild(choiceSection.firstChild);
     }
 
+ 
     roundCounter++;
+    roundCounterRendered = roundCounter;
+    if(roundCounterRendered >= totalRounds) {
+        roundCounterRendered = totalRounds - 1;
+    }
+    renderedRoundNumber.textContent = roundCounterRendered + 1;
 
-    if(roundCounter < roundCount) {
+    if(roundCounter < totalRounds) {
         quizRound();
     } else {
 
