@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
-    max-width: 1000px;
+    max-width: 900px;
 }
 main {
     position: relative;
@@ -34,7 +34,7 @@ li {
 }
 #staff-place-holder img {
     width: 100vw;
-    max-width: 1000px;
+    max-width: 900px;
 }
 #staff-place-holder p {
     position: absolute;
