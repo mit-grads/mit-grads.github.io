@@ -11,6 +11,9 @@ import { chromaticIntervalReference } from '../data/notes.js';
 const playIntervalButton = document.getElementById('play-interval-button');
 const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
+const renderedRoundNumber = document.getElementById('round-number');
+const renderedTotalRounds = document.getElementById('total-rounds');
+
 
 const interval = new IntervalClass();
 
@@ -20,13 +23,23 @@ let roundCounter = 0;
 let answerButtons;
 let correctAnswer;
 let playCallback;
+renderedRoundNumber.textContent = +roundCounter + 1;
+renderedTotalRounds.textContent = roundCount;
 
 let resultsArray = [];
 
 
 quizRound();
 
+function disableNextButton() {
+    const isButtonSelected = document.getElementsByClassName('selected');
+    if(isButtonSelected.length === 0) {
+        nextButton.disabled = true;
+    }
+}
+
 function quizRound() {
+    disableNextButton();
     const distance = Math.floor(Math.random() * 8);
     interval.setSecondNote(distance);
 
@@ -64,13 +77,8 @@ function quizRound() {
     answerOptionsArray = shuffle(answerOptionsArray);
 
     for(let i = 0; i < answerOptionsArray.length; i++) {
-        if(i === 0) {
-            const dom = renderAnswerOption(answerOptionsArray[i], true);
-            choiceSection.appendChild(dom);
-        } else {
-            const dom = renderAnswerOption(answerOptionsArray[i], false);
-            choiceSection.appendChild(dom);
-        }
+        const dom = renderAnswerOption(answerOptionsArray[i]);
+        choiceSection.appendChild(dom);
     }
 
 
@@ -81,13 +89,15 @@ function quizRound() {
                 button.classList.remove('selected');
             });
             button.classList.add('selected');
+            nextButton.disabled = false;
         });
     });
-
 }
 
 nextButton.addEventListener('click', () => {
+    disableNextButton();
     let selectedButton;
+    renderedRoundNumber.textContent = +roundCounter + 2;
     const buttons = [...answerButtons];
     for(let i = 0; i < buttons.length; i++) {
         if(buttons[i].className === 'answer-button selected') {
