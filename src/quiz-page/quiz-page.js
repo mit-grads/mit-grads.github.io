@@ -6,7 +6,7 @@ import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
 import { captureResults } from '../quiz-page/capture-results.js';
 import { storage } from '../data/storage.js';
-import { chromaticIntervalReference } from '../data/notes.js';
+import { chromaticIntervalReference, notesArrayObjects } from '../data/notes.js';
 
 const playIntervalButton = document.getElementById('play-interval-button');
 const choiceSection = document.getElementById('choice-section');
@@ -15,8 +15,15 @@ const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
 const currentUserInfo = storage.getCurrentUserInfo();
 
-
-const interval = new IntervalClass();
+let note;
+if(currentUserInfo.randomFirstNote === 'yes') {
+    const randomNum = Math.floor(Math.random() * 12);
+    note = notesArrayObjects[randomNum].name;
+} else {
+    note = 'A1';
+}
+//start random note 
+const interval = new IntervalClass(note);
 
 let totalRounds = 10;
 let roundCounter = 0;
@@ -45,13 +52,15 @@ function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
-    
-    //get user info:
-     //if userinfo.random first note = true
-    //set first note is equal to random, 
-    //distance is equal to random +distance
 
+    if(currentUserInfo.randomFirstNote === 'yes') {
+        const randomNum = Math.floor(Math.random() * 12);
+        note = notesArrayObjects[randomNum].name;
+    } else {
+        note = 'A1';
+    }
 
+    interval.setFirstNote(note);
     const distance = Math.floor(Math.random() * 8);
     interval.setSecondNote(distance);
 
