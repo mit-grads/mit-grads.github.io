@@ -1,4 +1,8 @@
-
+body {
+    background-image: url("/assets/background-staff-giff.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .choices div {
     
@@ -7,7 +11,7 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #4C4B63;
-    background-color:rgba(221, 188, 96, 0.678);
+    background-color:rgba(221, 188, 96, 0.849);
     text-align: center;
     margin: 5px;
     height: 300px;
