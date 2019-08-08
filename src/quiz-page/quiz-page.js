@@ -6,7 +6,7 @@ import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
 import { captureResults } from '../quiz-page/capture-results.js';
 import { storage } from '../data/storage.js';
-import { chromaticIntervalReference } from '../data/notes.js';
+import { chromaticIntervalReference, notesArrayObjects, diatonicScale } from '../data/notes.js';
 
 const playIntervalButton = document.getElementById('play-interval-button');
 const choiceSection = document.getElementById('choice-section');
@@ -16,7 +16,17 @@ const renderedTotalRounds = document.getElementById('total-rounds');
 const instructionsDisplay = document.getElementById('instructions-display');
 const currentUserInfo = storage.getCurrentUserInfo();
 
-const interval = new IntervalClass();
+
+let note;
+if(currentUserInfo.randomFirstNote === 'yes') {
+    const randomNum = Math.floor(Math.random() * 12);
+    note = notesArrayObjects[randomNum].name;
+} else {
+    note = 'A1';
+}
+
+const interval = new IntervalClass(note);
+
 
 let totalRounds = 10;
 let roundCounter = 0;
@@ -30,6 +40,8 @@ renderedRoundNumber.textContent = roundCounterRendered + 1;
 renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
+let lastIntervalUsedArray = [];
+const intervalsAvailableArray = diatonicScale;
 
 quizRound();
 
@@ -47,30 +59,33 @@ instructionsDisplay.addEventListener('click', () => {
     }
 });
 
-function disableNextButton() {
-    const isButtonSelected = document.getElementsByClassName('selected');
-    if(isButtonSelected.length === 0) {
-        nextButton.disabled = true;
-    }
-}
-
 function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
+
     
-    //get user info:
-     //if userinfo.random first note = true
-    //set first note is equal to random, 
-    //distance is equal to random +distance
+    if(currentUserInfo.randomFirstNote === 'yes') {
+        const randomNum = Math.floor(Math.random() * 12);
+        note = notesArrayObjects[randomNum].name;
+    } else {
+        note = 'A1';
+    }
+    interval.setFirstNote(note);
 
+    const intervalDistance = Math.floor(Math.random() * intervalsAvailableArray.length);
+    const intervalUsed = intervalsAvailableArray[intervalDistance];
+    intervalsAvailableArray.splice(intervalDistance, 1);
+    lastIntervalUsedArray.push(intervalUsed);
+    if(lastIntervalUsedArray.length === 2) {
+        intervalsAvailableArray.push(lastIntervalUsedArray[0]);
+        lastIntervalUsedArray.splice(0, 1);
+    }
 
-    const distance = Math.floor(Math.random() * 8);
-    interval.setSecondNote(distance);
+    interval.setSecondNote(intervalDistance);
 
     const firstNote = interval.getFirstNote();
     const secondNote = interval.getSecondNote();
-
 
     const instrument = findById(instruments, 'trumpet');
     const duration = +currentUserInfo.duration;
@@ -97,7 +112,7 @@ function quizRound() {
     let answerOptionsArray = [];
 
     const intervalOptions = new GenerateInterval(interval.scale);
-    correctAnswer = intervalOptions.scale[distance];
+    correctAnswer = intervalOptions.scale[intervalDistance];
     intervalOptions.removeInterval(correctAnswer);
     answerOptionsArray.push(correctAnswer);
 
@@ -131,8 +146,6 @@ function quizRound() {
     });
 }
 
-
-
 nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;
@@ -149,7 +162,7 @@ nextButton.addEventListener('click', () => {
         choiceSection.removeChild(choiceSection.firstChild);
     }
 
- 
+
     roundCounter++;
     roundCounterRendered = roundCounter;
     if(roundCounterRendered >= totalRounds) {
@@ -160,19 +173,26 @@ nextButton.addEventListener('click', () => {
     if(roundCounter < totalRounds) {
         quizRound();
     } else {
-
-        resultsArray.forEach((line) => {
-            line.index = chromaticIntervalReference[line.interval];
-        });
-
-        sortData(resultsArray);
-
-        resultsArray.forEach((line) => {
-            delete line.index;
-        });
-
-        const currentUser = storage.getCurrentUserInfo();
-        storage.saveQuizResults(resultsArray, currentUser.name);
-        window.location = 'results-page.html';
+        afterLastRound();
     }
 });
+
+function afterLastRound() {
+    resultsArray.forEach((line) => {
+        line.index = chromaticIntervalReference[line.interval];
+    });
+    sortData(resultsArray);
+    resultsArray.forEach((line) => {
+        delete line.index;
+    });
+    const currentUser = storage.getCurrentUserInfo();
+    storage.saveQuizResults(resultsArray, currentUser.name);
+    window.location = 'results-page.html';
+}
+
+function disableNextButton() {
+    const isButtonSelected = document.getElementsByClassName('selected');
+    if(isButtonSelected.length === 0) {
+        nextButton.disabled = true;
+    }
+}
