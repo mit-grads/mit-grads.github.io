@@ -3,8 +3,6 @@
 import { notesArrayObjects } from './data/notes.js';
 
 export function playNote(instrument, note, duration) {
-    console.log(instrument);
-
     let env = new p5.Envelope();
     let filterEnv = new p5.Envelope();
     let osc = new p5.Oscillator();
