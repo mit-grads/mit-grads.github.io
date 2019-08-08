@@ -87,17 +87,15 @@ function quizRound() {
     intervalOptions.removeInterval(correctAnswer);
     answerOptionsArray.push(correctAnswer);
 
-    const numberOfAnswers = +currentUserInfo.numberOfAnswers;
+    let numberOfAnswers = +currentUserInfo.numberOfAnswers - 1;
     if(numberOfAnswers > intervalOptions.length) {
-        numberOfAnswers = intervalOptions.length
+        numberOfAnswers = intervalOptions.length;
     }
-    //chabnge number of answers rendewred
 
-    for(let i = 0; i < numberOfAnswers; i++) {}
-    const answer = intervalOptions.getRandomInterval();
-
-    answerOptionsArray.push(answer1);
-    answerOptionsArray.push(answer2);
+    for(let i = 0; i < numberOfAnswers; i++) {
+        const answer = intervalOptions.getRandomInterval();
+        answerOptionsArray.push(answer);
+    }
 
     answerOptionsArray = shuffle(answerOptionsArray);
 
