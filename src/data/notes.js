@@ -76,45 +76,43 @@ export const notesArrayObjects = [
 
 
 export const diatonicScale = [
-    'perfect unison',
-    'major second',
-    'major third',
-    'perfect fourth',
-    'perfect fifth',
-    'major sixth',
-    'major seventh',
-    'perfect octave'
+    'P1',
+    'Maj 2',
+    'Maj 3',
+    'P4',
+    'P5',
+    'Maj 6',
+    'Maj 7',
+    'P8'
 ];
 export const chromaticScale = [
-    'perfect unison',
-    'minor second',
-    'major second',
-    'minor third',
-    'major third',
-    'perfect fourth',
-    'diminished fifth',
-    'perfect fifth',
-    'minor sixth',
-    'major sixth',
-    'minor seventh',
-    'major seventh',
-    'perfect octave'
+    'P1',
+    'min 2',
+    'Maj 2',
+    'min 3',
+    'Maj 3',
+    'P4',
+    'Tri-Tone',
+    'P5',
+    'min 6',
+    'Maj 6',
+    'min 7',
+    'Maj 7',
+    'P8'
 ];
 
 export const chromaticIntervalReference = {
-    'perfect unison': 0,
-    'minor second': 1,
-    'major second': 2,
-    'minor third': 3,
-    'major third': 4,
-    'perfect fourth': 5,
-    'diminished fifth': 6,
-    'augmented fourth': 6,
-    'tri-tone': 6,
-    'perfect fifth': 7,
-    'minor sixth': 8,
-    'major sixth': 9,
-    'minor seventh': 10,
-    'major seventh': 11,
-    'perfect octave': 12
+    'P1': 0,
+    'min 2': 1,
+    'Maj 2': 2,
+    'min 3': 3,
+    'Maj 3': 4,
+    'P4': 5,
+    'Tri-Tone': 6,
+    'P5': 7,
+    'min 6': 8,
+    'Maj 6': 9,
+    'min 7': 10,
+    'Maj 7': 11,
+    'P8': 12
 };

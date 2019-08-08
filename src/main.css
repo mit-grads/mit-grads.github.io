@@ -22,7 +22,15 @@ header {
 }
 .top-bar a {
     display: flex;
+    
 }
+
+.top-bar div:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:2px 2px 5px 1px #ABA8B2;
+}
+
+
 .top-bar img {
     height: 80px;
     margin: 10px;
@@ -35,7 +43,8 @@ header {
     align-self: center;
     color: black;
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-	opacity: 0.45;
+    opacity: 0.45;
+    transition: transform 150ms, background-color 150ms, box-shadow 150ms;
 }
 .top-bar a .first-letter {
     font-family: 'Oleo Script', sans-serif;
@@ -61,9 +70,10 @@ p, ul, li, figcaption {
 
 
 button {
-    border: 3px solid #4C4B63;
-    background-color:#ABA8B2;
-    color: #4C4B63;
+    border-radius: 5%;
+    border: 2px solid #4C4B63;
+    background-image: linear-gradient(to bottom right, rgba(76, 75, 99, 0.651), rgb(94, 138, 221), rgb(155, 174, 199));
+    color: rgba(38, 38, 51, 0.952);
     font-size: 1.2rem;
     margin: 3vh;
     height: 40px;
@@ -72,9 +82,9 @@ button {
 }
 button:hover {
     transform: translate(-2px, -2px);
-    background-color: #EFEFEF;
     box-shadow:2px 2px 5px 1px #ABA8B2;
     color: black;
+    background-color: #EFEFEF;
 }
 
 
