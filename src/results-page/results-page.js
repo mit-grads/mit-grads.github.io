@@ -2,8 +2,7 @@ import { renderTHead, renderTBody, renderTFoot } from '/src/results-page/render-
 import { storage } from '/src/data/storage.js';
 
 const userName = document.getElementById('user-name');
-const userCorrectAnswers = document.getElementById('user-correct-answers');
-const numberOfRounds = document.getElementById('number-of-rounds');
+const userCorrectPercent = document.getElementById('user-correct-percent');
 const resultsTable = document.getElementById('results-table');
 
 const userInfo = storage.getCurrentUserInfo();
@@ -17,8 +16,7 @@ quizResults.forEach(element => {
 });
 
 userName.textContent = userInfo.name;
-userCorrectAnswers.textContent = totalCorrect;
-numberOfRounds.textContent = totalAttempts;
+userCorrectPercent.textContent = (totalCorrect / totalAttempts * 100) + '%';
 renderTable(quizResults);
 
 
