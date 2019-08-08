@@ -24,31 +24,107 @@
             </div>
         </header>
         <main>
-            <div class="container">
-                <div id="staff-place-holder">
-                    <img src="assets/score.svg" alt="image of a musical score">
-                </div>
-                <div id="instructions" class="hidden">
-                    <h2>Welcome to MIT</h2>
-                    <ul>
-                        <li>On the next page, a series of ten intervals will be
-                            played.</li>
-                        <li>You may listen to the interval as many times as you'd
-                            like by pressing the "Play Interval" button.</li>
-                        <li>Please listen to the interval and identify it using the
-                            answer buttons provided.</li>
-                        <li>Once you select your answer, click the "Next Interval"
-                            button to play a new interval.</li>
-                        <li>Once you have gone through all ten intervals, please go
-                            on to the results page to see how you did.</li>
+            <div id="staff-place-holder">
+                <figure>
+                    <img src="assets/splash.gif" alt="image of musical intervals">
+                    <p>Click to Begin</p>
+                </figure>
+            </div>
+            <div id="instructions">
+                <h2>Welcome to Music Interval Trainer</h2>
+                <p>On the quiz page you will hear musical intervals and be asked to identify them.</p>
+                <p>You may listen to an interval again by pressing the "Play Interval" button.</p>
+                <p>When you've made your choice click the "Submit" button to go on to a new interval.</p>
+                <p>At the end of the quiz your results will be displayed.</p>
+                <!-- <p id="intervals">The following shorthand is used for interval identification:
+                    <ul class="intervals-list">
+                        <li>P1 = Perfect Unison</li>
+                        <li>min 2 = Minor Second</li>
+                        <li>Maj 2 = Major Second</li>
+                        <li>min 3 = Minor Third</li>
+                        <li>Maj 3 = Major Third</li>
+                        <li>P4 = Perfect Fourth</li>
+                        <li>Tri-Tone = Augmented Fourth/Diminished Fifth</li>
+                        <li>P5 = Perfect Fifth</li>
+                        <li>min 6 = Minor Sixth</li>
+                        <li>Maj 6 = Major Sixth</li>
+                        <li>min 7 = Minor Seventh</li>
+                        <li>Maj 7 = Major Seventh</li>
+                        <li>P8 = Perfect Octave</li>
                     </ul>
-                    <form id="landing-page-form">
-                        <input type="text" id="user-name" autofocus>
-                        <button>Submit User Name</button>
-                    </form>
-                </div>
+                <p> -->
+                </p>
+                <button id="show-settings-button">Show Optional Quiz Settings</button>
+                <form id="landing-page-form">
+                    <div id="settings-form" class="hidden">
+                        <p>
+                            <label for="interval-type">How Do You Want To Hear The Intervals?</label>
+                            <select name="interval-type">
+                                <option value="melodic">
+                                    Melodic
+                                </option>
+                                <option value="harmonic">
+                                    Harmonic
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="random-first-note">Do You Want The First Note To Change?</label>
+                            <select name="random-first-note">
+                                <option value="no">
+                                    No
+                                </option>
+                                <option value="yes">
+                                    Yes
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="duration">How Long Do You Want Each Note To Play?</label>
+                            <input type="range" id="duration" name="duration" min="0.5" max="3" step="0.5" value="1.5"><span id="duration-span"></span>
+                        </p>
+                        <p>
+                            <label for="play-interval-counter">How Many Times Do You Want To Be Able To Play The Interval?</label>
+                            <select name="play-interval-counter">
+                            <datalist id="interval-counter-values">
+                                <option value="Unlimited">
+                                    Unlimited Times
+                                </option>
+                                <option value="1">
+                                    Once
+                                </option>
+                                <option value="2">
+                                    Twice
+                                </option>
+                                <option value="3">
+                                    Thrice
+                                </option>
+                                <option value="4">
+                                    Four Times
+                                </option>
+                                <option value="5">
+                                    Five Times
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="number-answers">How Many Answers Do You Want To Choose From?</label>
+                            <input type="range" id="number-answers" name="number-answers" min="2" max="5" step="1" value="3"><span id="number-answers-span"></span>
+                        </p>
+                    </div>
+                    <input type="text" id="user-name" name= "user-name" autofocus placeholder="your name" required>
+                    <button>Begin the Quiz</button>
+                </form>
             </div>
         </main>
+        <footer>
+            <p class="right-justification"><a href="./about-us.html">&copy MIT Grads</a></p>
+        </footer>
+        <audio id="background-music" preload="auto"><source src="/assets/goldberg-variation-aria.mp3"></source>Your browser doesn't support our audio.</audio>
+        <audio id="christmas-music" preload="auto"><source src="/assets/xmas.mp3"></source>Your browser doesn't support our audio.</audio>
+        <audio id="floyd-music" preload="auto"><source src="/assets/pink-floyd-have-a-cigar.mp3"></source>Your browser doesn't support our audio.</audio>
+        <audio id="synthesizer-music" preload="auto"><source src="/assets/the-polish-ambassador-synthesizer.mp3"></source>Your browser doesn't support our audio.</audio>
+        <audio id="dirty-stick-music" preload="auto"><source src="/assets/the-workout.mp3"></source>Your browser doesn't support our audio.</audio>
         <script src="./src/landing-page/landing-page.js" type="module"></script>
     </body>
 </html>

@@ -1,5 +1,7 @@
+import { instruments } from './instrument.js';
 const QUIZ_RESULTS_KEY = 'mit-historical-quiz-results';
 const CURRENT_USER_INFO_KEY = 'mit-current-user-info';
+const INSTRUMENTS_KEY = 'instruments';
 
 export const storage = {
     storage: window.localStorage,
@@ -28,5 +30,24 @@ export const storage = {
     },
     saveCurrentUserInfo(info) {
         this.save(CURRENT_USER_INFO_KEY, info);
+    },
+    addCurrentInstrumentData(data) {
+        const storedInstruments = this.getInstruments();
+        storedInstruments.push(data);
+        this.save(INSTRUMENTS_KEY, storedInstruments);
+    },
+    getInstruments() {
+        const storedInstruments = this.get(INSTRUMENTS_KEY);
+
+        if(storedInstruments) {
+            return storedInstruments;
+        }
+        return [];
+    },
+    preLoadInstruments() {
+        instruments.forEach((instrument) => {
+            this.addCurrentInstrumentData(instrument);
+        });
     }
+
 };

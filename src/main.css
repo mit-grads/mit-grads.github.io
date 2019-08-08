@@ -5,7 +5,6 @@ body {
 }
 
 header {
-    background-color: lightsteelblue;
     background-image: linear-gradient(to bottom right, #4C4B63, #6893E2, lightsteelblue);
     width: 100%;
     height: auto;
@@ -13,10 +12,11 @@ header {
 
 .top-bar {
     display: flex;
-    width: 100vw;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     align-items: center;
+    position: relative;
 }
 .top-bar a, .top-bar a:visited, .top-bar a:hover  {
     text-decoration:none;
@@ -24,10 +24,20 @@ header {
 .top-bar a {
     display: flex;
 }
+/* .top-bar a:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:2px 2px 5px 1px #ABA8B2;
+} */
+.top-bar a:hover div {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 1px 1px #ddd;
+}
+
+
 .top-bar img {
     height: 80px;
     margin: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
     opacity: 0.8;
     border-radius: 3px;
 }
@@ -36,7 +46,8 @@ header {
     align-self: center;
     color: black;
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-	opacity: 0.45;
+    opacity: 0.45;
+    transition: transform 150ms, background-color 150ms, box-shadow 150ms;
 }
 .top-bar a .first-letter {
     font-family: 'Oleo Script', sans-serif;
@@ -53,39 +64,41 @@ h2{
     font-size: 1.5em;
     margin: 0 0 0 0;
 }
-p, ul, li {
+p, ul, li, figcaption {
     font-family: 'Red Hat Display', sans-serif;
-    /* font-family: 'Blinker', sans-serif; */
     font-size: 1em;
     margin:0 0 0 0;
 }
 
 
 button {
-    border: 3px solid #4C4B63;
-    background-color:#ABA8B2;
-    color: #4C4B63;
+    border-radius: 5%;
+    border: 2px solid #4C4B63;
+    background-image: linear-gradient(to bottom right, rgba(76, 75, 99, 0.651), rgb(94, 138, 221), rgb(155, 174, 199));
+    color: rgba(38, 38, 51, 0.952);
     font-size: 1.2rem;
     margin: 3vh;
     height: 40px;
     font-weight: 800;
     transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
+    cursor: pointer;
 }
 button:hover {
     transform: translate(-2px, -2px);
-    background-color: #EFEFEF;
     box-shadow:2px 2px 5px 1px #ABA8B2;
     color: black;
+    background-color: #EFEFEF;
 }
 
 
 footer {
-    background-color: #6893E2;
+    background-image: linear-gradient(to bottom right, #4C4B63, #6893E2, lightsteelblue);
     width: 100%;
     height: 5vh;
     margin: 0;
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 footer p {
     display: inline-block;

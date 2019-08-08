@@ -13,23 +13,39 @@ const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
 const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
-
+const instructionsDisplay = document.getElementById('instructions-display');
+const currentUserInfo = storage.getCurrentUserInfo();
 
 const interval = new IntervalClass();
 
-let roundCount = 10;
+let totalRounds = 10;
 let roundCounter = 0;
-
+let roundCounterRendered = roundCounter;
+let instructionsVisible = false;
 let answerButtons;
 let correctAnswer;
 let playCallback;
-renderedRoundNumber.textContent = +roundCounter + 1;
-renderedTotalRounds.textContent = roundCount;
+
+renderedRoundNumber.textContent = roundCounterRendered + 1;
+renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
 
-
 quizRound();
+
+instructionsDisplay.addEventListener('click', () => {
+    const instructionsSlider = document.querySelector('.instructions-slider');
+    if(instructionsVisible) {
+        instructionsSlider.classList.remove('displayed');
+        instructionsDisplay.textContent = 'View Instructions';
+        instructionsVisible = false;
+    }
+    else {
+        instructionsSlider.classList.add('displayed');
+        instructionsDisplay.textContent = 'Hide Instructions';
+        instructionsVisible = true;
+    }
+});
 
 function disableNextButton() {
     const isButtonSelected = document.getElementsByClassName('selected');
@@ -40,6 +56,15 @@ function disableNextButton() {
 
 function quizRound() {
     disableNextButton();
+    playIntervalButton.disabled = false;
+    let playIntervalCounter = 1;
+    
+    //get user info:
+     //if userinfo.random first note = true
+    //set first note is equal to random, 
+    //distance is equal to random +distance
+
+
     const distance = Math.floor(Math.random() * 8);
     interval.setSecondNote(distance);
 
@@ -48,8 +73,8 @@ function quizRound() {
 
 
     const instrument = findById(instruments, 'trumpet');
-    const duration = 1.5;
-    const intervalType = 'melodic';
+    const duration = +currentUserInfo.duration;
+    const intervalType = currentUserInfo.intervalType;
 
     playIntervalButton.removeEventListener('click', playCallback);
 
@@ -57,10 +82,13 @@ function quizRound() {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
     }, 1000);
 
-
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
 
+        playIntervalCounter++;
+        if(playIntervalCounter >= +currentUserInfo.playIntervalCount) {
+            playIntervalButton.disabled = true;
+        }
     };
 
 
@@ -68,16 +96,20 @@ function quizRound() {
 
     let answerOptionsArray = [];
 
-    const option = new GenerateInterval(interval.scale);
-    correctAnswer = option.scale[distance];
-    option.removeInterval(correctAnswer);
-
-    const answer1 = option.getRandomInterval();
-    const answer2 = option.getRandomInterval();
-
+    const intervalOptions = new GenerateInterval(interval.scale);
+    correctAnswer = intervalOptions.scale[distance];
+    intervalOptions.removeInterval(correctAnswer);
     answerOptionsArray.push(correctAnswer);
-    answerOptionsArray.push(answer1);
-    answerOptionsArray.push(answer2);
+
+    let numberOfAnswers = +currentUserInfo.numberOfAnswers - 1;
+    if(numberOfAnswers > intervalOptions.length) {
+        numberOfAnswers = intervalOptions.length;
+    }
+
+    for(let i = 0; i < numberOfAnswers; i++) {
+        const answer = intervalOptions.getRandomInterval();
+        answerOptionsArray.push(answer);
+    }
 
     answerOptionsArray = shuffle(answerOptionsArray);
 
@@ -99,10 +131,11 @@ function quizRound() {
     });
 }
 
+
+
 nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;
-    renderedRoundNumber.textContent = +roundCounter + 2;
     const buttons = [...answerButtons];
     for(let i = 0; i < buttons.length; i++) {
         if(buttons[i].className === 'answer-button selected') {
@@ -116,9 +149,15 @@ nextButton.addEventListener('click', () => {
         choiceSection.removeChild(choiceSection.firstChild);
     }
 
+ 
     roundCounter++;
+    roundCounterRendered = roundCounter;
+    if(roundCounterRendered >= totalRounds) {
+        roundCounterRendered = totalRounds - 1;
+    }
+    renderedRoundNumber.textContent = roundCounterRendered + 1;
 
-    if(roundCounter < roundCount) {
+    if(roundCounter < totalRounds) {
         quizRound();
     } else {
 
@@ -136,6 +175,4 @@ nextButton.addEventListener('click', () => {
         storage.saveQuizResults(resultsArray, currentUser.name);
         window.location = 'results-page.html';
     }
-
-
 });
