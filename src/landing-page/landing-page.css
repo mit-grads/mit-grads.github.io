@@ -73,6 +73,7 @@ li {
     z-index: 1;
 }
 #instructions h2 {
+    font-size: 2rem;
     margin: 10px;
 }
 
