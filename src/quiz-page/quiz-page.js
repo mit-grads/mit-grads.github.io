@@ -65,7 +65,7 @@ function quizRound() {
     intervalsAvailableArray.splice(intervalDistance, 1);
     lastIntervalUsedArray.push(intervalUsed);
     if(lastIntervalUsedArray.length === 2) {
-        intervalsAvailableArray.push(lastIntervalUsedArray[0]);\
+        intervalsAvailableArray.push(lastIntervalUsedArray[0]);
         lastIntervalUsedArray.splice(0, 1);
     }
 
