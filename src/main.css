@@ -12,22 +12,25 @@ header {
 
 .top-bar {
     display: flex;
-    width: 100vw;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     align-items: center;
+    position: relative;
 }
 .top-bar a, .top-bar a:visited, .top-bar a:hover  {
     text-decoration:none;
 }
 .top-bar a {
     display: flex;
-    
 }
-
-.top-bar div:hover {
+/* .top-bar a:hover {
     transform: translate(-2px, -2px);
     box-shadow:2px 2px 5px 1px #ABA8B2;
+} */
+.top-bar a:hover div {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 1px 1px #ddd;
 }
 
 

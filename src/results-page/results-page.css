@@ -1,4 +1,7 @@
 body {
+    background-image: url("/assets/yellow-parchment_53876-91513.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     max-width: 1000px;
     margin: auto;
 }
@@ -15,8 +18,8 @@ body {
 .container h2 {
     margin-bottom: 10px;
 }
-table {
-    border: 3px solid  #4C4B63;
+#results-table {
+    border: 2px solid  #4C4B63;
     border-collapse: collapse;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -25,7 +28,7 @@ table {
 }
 
 thead, tfoot {
-    background:#949396;
+    background:#949396d3;
 }
 
 td, th {
@@ -34,7 +37,7 @@ td, th {
 }
 
 tbody {
-    background: #EFEFEF;
+    background: rgb(240, 231, 218)
 }
 
 table th, table td {
@@ -46,7 +49,7 @@ table tr td:first-of-type, table thead th:first-of-type {
 }
 
 tbody tr:nth-child(even) {
-    background: #ABA8B2;
+    background: rgba(175, 173, 161, 0.747);
 }
 
 #about-us {
@@ -61,7 +64,7 @@ a {
 }
 
 a:hover, a:active {
-    color: rgb(221, 221, 83);
+    color: rgb(226, 169, 45);
 }
 
 .replay, .replay:visited {
