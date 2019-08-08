@@ -1,0 +1,9 @@
+form {
+    display:flex;
+}
+
+.block {
+    padding:20px;
+    border: 3px solid darkcyan;
+    margin:20px;
+}

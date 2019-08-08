@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+        <link rel='stylesheet' href='src/main.css' type='text/css'>
+        <link rel='stylesheet' href='src/add-instrument/add-instrument.css'
+            type='text/css'>
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <div class="top-bar">
+                <h2>
+                    <a href="/">
+                        <img src="assets/MIT-logo.png" alt="">
+                        <div>
+                            <span class="first-letter">M</span>usic
+                            <span class="first-letter">I</span>nterval
+                            <span class="first-letter">T</span>rainer
+                        </div>
+                    </a>
+                </h2>
+            </div>
+        </header>
+
+        <form id="instrument-input-form">
+            <div>
+                <div class="block">
+                    <p>
+                        <label for="waveform">Waveform:</label>
+                        <select id="waveform" name="waveform">
+                            <option value="sine">Sine</option>
+                            <option value="sawtooth">Sawtooth</option>
+                            <option value="square">Square</option>
+                            <option value="triangle">Triangle</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="osc-attack">Oscillator attack:</label>
+                        <input id="osc-attack" name="osc-attack" type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+                    <p>
+                        <label for="osc-decay">Oscillator decay:</label>
+                        <input id="osc-decay" name="osc-decay" type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+                    <p>
+                        <label for="osc-sustain">Oscillator sustain:</label>
+                        <input id="osc-sustain" name="osc-sustain" type="range"
+                            min="0"
+                            max="1" step=".01">
+                    </p>
+                    <p>
+                        <label for="osc-release">Oscillator release:</label>
+                        <input id="osc-release" name="osc-release" type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+                </div>
+                <div class="block">
+                    <p>
+                        <label for='filter-type'>Filter type:</label>
+                        <select id='filter-type' name='filter-type'>
+                            <option value="lowpass">Lowpass</option>
+                            <option value="highpass">Highpass</option>
+                            <option value="bandpass">Bandpass</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for='filter-frequency'>Filter frequency:</label>
+                        <input id="filter-frequency" name="filter-frequency"
+                            type="range" min="0" max="20000" step="1">
+                    </p>
+                    <p>
+                        <label for="filter-attack">Filter attack:</label>
+                        <input id="filter-attack" name="filter-attack"
+                            type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+                    <p>
+                        <label for="filter-decay">Filter decay:</label>
+                        <input id="filter-decay" name="filter-decay"
+                            type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+                    <p>
+                        <label for="filter-sustain">Filter sustain:</label>
+                        <input id="filter-sustain" name="filter-sustain"
+                            type="range"
+                            min="0"
+                            max="1" step=".01">
+                    </p>
+                    <p>
+                        <label for="filter-release">Filter release:</label>
+                        <input id="filter-release" name="filter-release"
+                            type="range"
+                            min="0"
+                            max="5" step=".01">
+                    </p>
+
+                </div>
+            </div>
+            <div> <div class="block">
+                    <p>
+                        <label for='distortion-amount'>Distortion amount</label>
+                        <input id="distortion-amount" name="distortion-amount"
+                            type="range" min="0" max="1" step=".01">
+                    </p>
+                    <p>
+                        <label for='distortion-oversample'>Distortion oversample</label>
+                        <select id="distortion-oversample"
+                            name="distortion-oversample">
+                            <option value="none">None</option>
+                            <option value="2x">2x</option>
+                            <option value="4x">4x</option>
+                        </select>
+                    </p>
+                </div>
+
+                <div class="block">
+                    <p>
+                        <label for="reverb-amount">Reverb amount</label>
+                        <input id="reverb-amount" name="reverb-amount"
+                            type="range"
+                            min="0" max="10" step=".01">
+                    </p>
+                    <p>
+                        <label for="reverb-decay">Reverb decay</label>
+                        <input id="reverb-decay" name="reverb-decay"
+                            type="range"
+                            min="0" max="100" step=".01">
+                    </p>
+                    <p>
+                        <label for='reverb-direction'>Reverb direction</label>
+                        <select id="reverb-direction" name="reverb-direction">
+                            <option value="false">Forward</option>
+                            <option value="true">Backward</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="block">
+                    <p>
+                        <label for="delay-time">Delay time</label>
+                        <input id="delay-time" name="delay-time" type="range"
+                            min="0" max="1" step=".01">
+                    </p>
+                    <p>
+                        <label for="delay-feedback">Delay feedback</label>
+                        <input id="delay-feedback" name="delay-feedback"
+                            type="range"
+                            min="0" max="1" step=".01">
+                    </p>
+                    <p>
+                        <label for="delay-filter">Delay filter</label>
+                        <input id="delay-filter" name="delay-filter"
+                            type="range"
+                            min="0" max="20000" step=".01">
+                    </p>
+                </div>
+            </div>
+
+        </form>
+
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
+            integrity="sha256-WVsM3xrcqyuFNF3W1qtIKbHFsD0977nDQA8DCMp1zCw="crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"
+            integrity="sha256-GdlroanCXFgv0ILaTQ1v0qnNxc+FQNjjXADWxmtr7PM="crossorigin="anonymous"></script>
+        <script src='src/add-instrument/add-instrument.js' type='module'></script>
+    </body>
+</html>
