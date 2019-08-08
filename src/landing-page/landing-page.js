@@ -25,7 +25,8 @@ function initializeUserName() {
 }
 
 function showInstructions() {
-    instructions.classList.remove('hidden');
+    staffPlaceHolder.querySelector('figure').classList.add('fadeout');
+    instructions.classList.add('displayed');
 }
 
 function goToQuizPage(event) {
