@@ -92,11 +92,13 @@ function quizRound() {
     const option = new GenerateInterval(interval.scale);
     correctAnswer = option.scale[distance];
     option.removeInterval(correctAnswer);
+    answerOptionsArray.push(correctAnswer);
 
+    
+    //chabnge number of answers rendewred
+    
     const answer1 = option.getRandomInterval();
     const answer2 = option.getRandomInterval();
-
-    answerOptionsArray.push(correctAnswer);
     answerOptionsArray.push(answer1);
     answerOptionsArray.push(answer2);
 

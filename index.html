@@ -71,7 +71,7 @@
                         </p>
                         <p>
                             <label for="duration">How Long Do You Want Each Note To Play?</label>
-                            <input type="range" name="duration" min="0.5" max="3" step="0.5" value="1.5"><span id="duration-value"></span>
+                            <input type="range" id="duration" name="duration" min="0.5" max="3" step="0.5" value="1.5"><span id="duration-span"></span>
                         </p>
                         <p>
                             <label for="play-interval-counter">How Many Times Do You Want To Be Able To Play The Interval?</label>
@@ -97,8 +97,12 @@
                                 </option>
                             </select>
                         </p>
+                        <p>
+                            <label for="number-answers">How Many Answers Do You Want To Choose From?</label>
+                            <input type="range" id="number-answers" name="number-answers" min="2" max="5" step="1" value="3"><span id="number-answers-span"></span>
+                        </p>
                     </div>
-                    <input type="text" id="user-name" autofocus placeholder="your name">
+                    <input type="text" id="user-name" name= "user-name" autofocus placeholder="your name" required>
                     <button>Begin the Trainer</button>
                 </form>
             </div>

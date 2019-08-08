@@ -11,21 +11,39 @@ const floydMusic = document.getElementById('floyd-music');
 const synthesizerMusic = document.getElementById('synthesizer-music');
 const showSettingsButton = document.getElementById('show-settings-button');
 const settingsForm = document.getElementById('settings-form');
+const durationSpan = document.getElementById('duration-span');
+const durationValue = document.getElementById('duration');
+const numberOfAnswersSpan = document.getElementById('number-answers-span');
+const numberOfAnswers = document.getElementById('number-answers');
 let themeMusic = backgroundMusic;
 
 initializeTheme();
 initializeUserName();
+durationSpan.textContent = durationValue.value;
+numberOfAnswersSpan.textContent = numberOfAnswers.value;
+
 staffPlaceHolder.addEventListener('mouseover', () => {
     startMusic();
 });
+
 staffPlaceHolder.addEventListener('click', () => {
     showInstructions();
 });
+
 landingPageForm.addEventListener('submit', (event) => {
     goToQuizPage(event);
 });
+
 showSettingsButton.addEventListener('click', () => {
     settingsForm.classList.remove('hidden');
+});
+
+durationValue.addEventListener('input', () => {
+    durationSpan.textContent = durationValue.value;
+});
+
+numberOfAnswers.addEventListener('input', () => {
+    numberOfAnswersSpan.textContent = numberOfAnswers.value;
 });
 
 function initializeTheme() {
@@ -66,18 +84,11 @@ function showInstructions() {
 
 function goToQuizPage(event) {
     event.preventDefault();
-    if(userName.value && userName.value !== '') {
-        const userInfo = {
-            name: userName.value
-        };
-        storage.saveCurrentUserInfo(userInfo);
+    inputNewUserSettingsFromForm();
+    
+    stopMusic();
+    window.location = 'quiz-page.html';
 
-        stopMusic();
-        window.location = 'quiz-page.html';
-    }
-    else {
-        userName.focus();
-    }
 }
 
 function startMusic() {
@@ -87,4 +98,16 @@ function startMusic() {
 function stopMusic() {
     themeMusic.pause();
     themeMusic.currentTime = 0;
+}
+function inputNewUserSettingsFromForm() {
+    const formData = new FormData(landingPageForm);
+    const userInfo = {
+        name: formData.get('user-name'),
+        intervalType: formData.get('interval-type'),
+        randomFirstNote: formData.get('random-first-note'),
+        duration: formData.get('duration'),
+        playIntervalCount: formData.get('play-interval-counter'),
+        numberOfAnswers: formData.get('number-answers'),
+    };
+    storage.saveCurrentUserInfo(userInfo);
 }
