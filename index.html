@@ -49,6 +49,36 @@
                     <button>Begin the Trainer</button>
                 </form>
             </div>
+            <div id="settings-form">
+                <form>
+                    <p>
+                        <label for="interval-type">How Do You Want To Hear The Intervals?</label>
+                        <select name="interval-type">
+                            <option value="melodic">
+                                Melodic
+                            </option>
+                            <option value="harmonic">
+                                Harmonic
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="random-first-note">Do You Want The First Note To Change?</label>
+                        <select name="random-first-note">
+                            <option value="yes">
+                                Yes
+                            </option>
+                            <option value="no">
+                                No
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="duration">How Long Do You Want Each Note To Play?</label>
+                        <input type="range" name="duration" min="0.5" max="3" step="0.5">
+                    </p>
+                </form>
+            </div>
         </main>
         <footer>
             <p class="right-justification"><a href="./about-us.html">&copy MIT Grads</a></p>

@@ -42,6 +42,26 @@ function disableNextButton() {
 
 function quizRound() {
     disableNextButton();
+
+    //get user info:
+     //if userinfo.random first note = true
+    //set first note is equal to random, 
+    //distance is equal to random +distance
+
+   
+    //if userinfo.type = harmonic
+    //interval type = melodic
+    //interval type defaults to melodic
+
+    //if userinfo.duration = x
+    //interval duration = x
+    //interval duration defaults to 1.5
+
+    //# of times to hear interval
+    //if userinfo.intervalPlayNumber = x
+    //play interval disables after x
+    //intervalPlayNumber defaults to unlimited
+
     const distance = Math.floor(Math.random() * 8);
     interval.setSecondNote(distance);
 
@@ -58,7 +78,6 @@ function quizRound() {
     setTimeout(() => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
     }, 1000);
-
 
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
