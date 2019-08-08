@@ -120,6 +120,8 @@ function quizRound() {
     });
 }
 
+
+
 nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;

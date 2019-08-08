@@ -76,7 +76,7 @@ li {
     margin: 10px;
 }
 
-#landing-page-form input {
+#landing-page-form #user-name {
     height: 34px;
     width: 200px;
     margin-top: 2vh;

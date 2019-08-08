@@ -9,6 +9,8 @@ const dirtyStickMusic = document.getElementById('dirty-stick-music');
 const christmasMusic = document.getElementById('christmas-music');
 const floydMusic = document.getElementById('floyd-music');
 const synthesizerMusic = document.getElementById('synthesizer-music');
+const showSettingsButton = document.getElementById('show-settings-button');
+const settingsForm = document.getElementById('settings-form');
 let themeMusic = backgroundMusic;
 
 initializeTheme();
@@ -21,6 +23,9 @@ staffPlaceHolder.addEventListener('click', () => {
 });
 landingPageForm.addEventListener('submit', (event) => {
     goToQuizPage(event);
+});
+showSettingsButton.addEventListener('click', () => {
+    settingsForm.classList.remove('hidden');
 });
 
 function initializeTheme() {
