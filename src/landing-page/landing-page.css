@@ -1,49 +1,93 @@
-#staff-place-holder {
+body {
+    margin: auto;
+    max-width: 1000px;
+}
+main {
+    position: relative;
     background-color: #aaaaaa;
+}
+figure {
+    margin: 0;
+}
+li {
+    font-family: 'Blinker', sans-serif;
+}
+
+
+#staff-place-holder {
     width: 100%;
     display: flex;
     justify-content: center;
-}
-
-#staff-place-holder img {
-    height: calc(100% - 10px);
-    transition: 300ms;
-    transition-timing-function: ease-in-out;
-    cursor: pointer;
-}
-#staff-place-holder img:hover {
     position: relative;
-    background: #FEFEFE;
-    /* box-shadow: 2px 2px #888888; */
-    /* transform: translate(-2px, -2px); */
+    z-index: 0;
 }
-#staff-place-holder.hidden {
-    transform: scale(0, 0);
-    /* display: none; */
-}
-
-#landing-page-form button {
-    font-size: 1.2rem;
-    height: 40px;
-}
-
-.container {
-    display: flex;
+#staff-place-holder img {
     width: 100vw;
+    max-width: 1000px;
+}
+#staff-place-holder p {
+    position: absolute;
+    bottom: 4px;
+    left: 47%;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#staff-place-holder figure {
+    cursor: pointer;
+    transition: 0.4s;
+    transition-timing-function: ease-in-out;
+}
+#staff-place-holder figure:hover {
+    transform: scale(1.01);
+}
+#staff-place-holder figure.fadeout {
+    opacity: 0;
+    cursor: default;
+}
+
+
+#instructions {
+    display: flex;
+    width: 95%;
     margin-right: auto;
     margin-left: auto;
+    padding-left: 5%;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    background-color: #aaaaaa;
+    opacity: 0;
+    transition: opacity 0.4s;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-in-out;
+    z-index: -1;
+}
+#instructions.displayed {
+    opacity: 1;
+    z-index: 1;
+}
+#instructions h2 {
+    margin: 10px;
 }
 
-.container input {
+#landing-page-form input {
     height: 34px;
     width: 200px;
-    font-size: 1.2em;
+    margin-top: 2vh;
     text-align: center;
+    font-size: 1.2em;
+    border: 2px inset gray;
 }
-
-li {
-    font-family: 'Blinker', sans-serif;
-
+#landing-page-form button {
+    height: 40px;
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    font-size: 1.2rem;
 }
