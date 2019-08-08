@@ -85,10 +85,8 @@ function showInstructions() {
 function goToQuizPage(event) {
     event.preventDefault();
     inputNewUserSettingsFromForm();
-    
     stopMusic();
     window.location = 'quiz-page.html';
-
 }
 
 function startMusic() {

@@ -13,6 +13,7 @@ const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
 const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
+const currentUserInfo = storage.getCurrentUserInfo();
 
 
 const interval = new IntervalClass();
@@ -42,25 +43,13 @@ function disableNextButton() {
 
 function quizRound() {
     disableNextButton();
-
+    playIntervalButton.disabled = false;
+    let playIntervalCounter = 1;
     //get user info:
      //if userinfo.random first note = true
     //set first note is equal to random, 
     //distance is equal to random +distance
 
-   
-    //if userinfo.type = harmonic
-    //interval type = melodic
-    //interval type defaults to melodic
-
-    //if userinfo.duration = x
-    //interval duration = x
-    //interval duration defaults to 1.5
-
-    //# of times to hear interval
-    //if userinfo.intervalPlayNumber = x
-    //play interval disables after x
-    //intervalPlayNumber defaults to unlimited
 
     const distance = Math.floor(Math.random() * 8);
     interval.setSecondNote(distance);
@@ -70,8 +59,8 @@ function quizRound() {
 
 
     const instrument = findById(instruments, 'trumpet');
-    const duration = 1.5;
-    const intervalType = 'melodic';
+    const duration = +currentUserInfo.duration;
+    const intervalType = currentUserInfo.intervalType;
 
     playIntervalButton.removeEventListener('click', playCallback);
 
@@ -82,6 +71,10 @@ function quizRound() {
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
 
+        playIntervalCounter++;
+        if(playIntervalCounter >= +currentUserInfo.playIntervalCount) {
+            playIntervalButton.disabled = true;
+        }
     };
 
 
@@ -89,16 +82,20 @@ function quizRound() {
 
     let answerOptionsArray = [];
 
-    const option = new GenerateInterval(interval.scale);
-    correctAnswer = option.scale[distance];
-    option.removeInterval(correctAnswer);
+    const intervalOptions = new GenerateInterval(interval.scale);
+    correctAnswer = intervalOptions.scale[distance];
+    intervalOptions.removeInterval(correctAnswer);
     answerOptionsArray.push(correctAnswer);
 
-    
+    const numberOfAnswers = +currentUserInfo.numberOfAnswers;
+    if(numberOfAnswers > intervalOptions.length) {
+        numberOfAnswers = intervalOptions.length
+    }
     //chabnge number of answers rendewred
-    
-    const answer1 = option.getRandomInterval();
-    const answer2 = option.getRandomInterval();
+
+    for(let i = 0; i < numberOfAnswers; i++) {}
+    const answer = intervalOptions.getRandomInterval();
+
     answerOptionsArray.push(answer1);
     answerOptionsArray.push(answer2);
 
