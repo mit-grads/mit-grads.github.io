@@ -12,6 +12,15 @@ figure {
 li {
     font-family: 'Blinker', sans-serif;
 }
+.intervals-list {
+    height: 9em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.intervals-list li {
+    margin-left: 20px;
+}
 
 
 #staff-place-holder {
