@@ -13,7 +13,7 @@ export const storage = {
     },
     getQuizResults(name = 'default') {
         const results = this.get(QUIZ_RESULTS_KEY + '-' + name);
-        if (results) {
+        if(results) {
             return results;
         }
         return [];
@@ -23,7 +23,7 @@ export const storage = {
     },
     getCurrentUserInfo() {
         const info = this.get(CURRENT_USER_INFO_KEY);
-        if (info) {
+        if(info) {
             return info;
         }
         return null;
@@ -39,7 +39,7 @@ export const storage = {
     getInstruments() {
         const storedInstruments = this.get(INSTRUMENTS_KEY);
 
-        if (storedInstruments) {
+        if(storedInstruments) {
             return storedInstruments;
         }
         return [];

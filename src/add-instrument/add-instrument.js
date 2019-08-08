@@ -1,7 +1,6 @@
 import { playNote } from '../playNote.js';
-import { instruments } from '../data/instrument.js';
 
-const instrumentForm = document.getElementById('instrument-input-form');
+//const instrumentForm = document.getElementById('instrument-input-form');
 const playButton = document.getElementById('play');
 const oscWaveform = document.getElementById('osc-waveform');
 const oscAttack = document.getElementById('osc-attack');
@@ -19,10 +18,7 @@ const filterRelease = document.getElementById('filter-release');
 const distortionMix = document.getElementById('distortion-mix');
 const distortionAmount = document.getElementById('distortion-amount');
 const distortionOversample = document.getElementById('distortion-oversample');
-const reverbAmount = document.getElementById('reverb-amount');
-const reverbTime = document.getElementById('reverb-time');
-const reverbDecay = document.getElementById('reverb-decay');
-const reverbDirection = document.getElementById('reverb-direction');
+
 const delayAmount = document.getElementById('delay-amount');
 const delayTime = document.getElementById('delay-time');
 const delayFeedback = document.getElementById('delay-feedback');
