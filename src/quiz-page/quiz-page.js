@@ -10,6 +10,9 @@ import { storage } from '../data/storage.js';
 const playIntervalButton = document.getElementById('play-interval-button');
 const choiceSection = document.getElementById('choice-section');
 const nextButton = document.getElementById('next-button');
+const renderedRoundNumber = document.getElementById('round-number');
+const renderedTotalRounds = document.getElementById('total-rounds');
+
 
 const interval = new IntervalClass();
 
@@ -19,6 +22,8 @@ let answerButtons;
 let roundCounter = 0;
 let correctAnswer;
 let playCallback;
+renderedRoundNumber.textContent = +roundCounter + 1;
+renderedTotalRounds.textContent = roundCount;
 
 quizRound();
 
@@ -87,6 +92,7 @@ let resultsArray = [];
 
 nextButton.addEventListener('click', () => {
     let selectedButton;
+    renderedRoundNumber.textContent = +roundCounter + 2;
     const buttons = [...answerButtons];
     for(let i = 0; i < buttons.length; i++) {
         if(buttons[i].className === 'answer-button selected') {
