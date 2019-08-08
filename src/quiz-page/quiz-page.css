@@ -1,7 +1,9 @@
-
+body {
+    max-width: 1000px;
+    margin: auto;
+}
 
 .choices div {
-    
     font-size: 5rem;
     display: inline-flex;
     justify-content: center;
@@ -36,7 +38,8 @@
 
 .answer-container {
     display: flex;
-    width: 100vw;
+    width: 100%;
+    min-height: 80vh;
     margin-right: auto;
     margin-left: auto;
     flex-direction: column;
