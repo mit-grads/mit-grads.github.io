@@ -3,7 +3,20 @@ form {
 }
 
 .block {
-    padding:20px;
+    padding:0 20px 20px 20px;
     border: 3px solid darkcyan;
     margin:20px;
+    text-align: left;
+}
+h2{
+    margin-bottom:10px;
+}
+
+label{
+        font-family: 'Red Hat Display', sans-serif;
+        margin:10px;
+
+}
+input, select{
+    margin:5px;
 }

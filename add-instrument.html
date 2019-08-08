@@ -28,9 +28,9 @@
         <form id="instrument-input-form">
             <div>
                 <div class="block">
-                    <p>
-                        <label for="waveform">Waveform:</label>
-                        <select id="waveform" name="waveform">
+                    <p><h2>Oscillator</h2>
+                        <label for="osc-waveform">Waveform:</label>
+                        <select id="osc-waveform" name="osc-waveform">
                             <option value="sine">Sine</option>
                             <option value="sawtooth">Sawtooth</option>
                             <option value="square">Square</option>
@@ -42,77 +42,94 @@
                         <label for="osc-attack">Oscillator attack:</label>
                         <input id="osc-attack" name="osc-attack" type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="0">
                     </p>
                     <p>
                         <label for="osc-decay">Oscillator decay:</label>
                         <input id="osc-decay" name="osc-decay" type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="0">
                     </p>
                     <p>
                         <label for="osc-sustain">Oscillator sustain:</label>
                         <input id="osc-sustain" name="osc-sustain" type="range"
                             min="0"
-                            max="1" step=".01">
+                            max="1" step=".01" value=".50">
                     </p>
                     <p>
                         <label for="osc-release">Oscillator release:</label>
                         <input id="osc-release" name="osc-release" type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="2.5">
                     </p>
                 </div>
+
                 <div class="block">
-                    <p>
+                    <p><h2>Filter</h2>
                         <label for='filter-type'>Filter type:</label>
                         <select id='filter-type' name='filter-type'>
-                            <option value="lowpass">Lowpass</option>
-                            <option value="highpass">Highpass</option>
-                            <option value="bandpass">Bandpass</option>
+                            <option value="low pass">Low pass</option>
+                            <option value="high pass">High pass</option>
+                            <option value="band pass">Band pass</option>
                         </select>
                     </p>
                     <p>
                         <label for='filter-frequency'>Filter frequency:</label>
                         <input id="filter-frequency" name="filter-frequency"
-                            type="range" min="0" max="20000" step="1">
+                            type="range" min="0" max="20000" step="1" value="4000">
+                    </p>
+                    <p>
+                        <label for="filter-start-level">Filter start level:</label>
+                        <input id="filter-start-level" name="filter-start-level"
+                            type="range" min="0" max="1" step=".01" value="1">
+                    </p>
+                    <p>
+                        <label for="filter-end-level">Filter end level:</label>
+                        <input id="filter-end-level" name="filter-end-level"
+                            type="range" min="0" max="1" step=".01" value="0">
                     </p>
                     <p>
                         <label for="filter-attack">Filter attack:</label>
                         <input id="filter-attack" name="filter-attack"
                             type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="0">
                     </p>
                     <p>
                         <label for="filter-decay">Filter decay:</label>
                         <input id="filter-decay" name="filter-decay"
                             type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="0">
                     </p>
                     <p>
                         <label for="filter-sustain">Filter sustain:</label>
                         <input id="filter-sustain" name="filter-sustain"
                             type="range"
                             min="0"
-                            max="1" step=".01">
+                            max="1" step=".01" value=".50">
                     </p>
                     <p>
                         <label for="filter-release">Filter release:</label>
                         <input id="filter-release" name="filter-release"
                             type="range"
                             min="0"
-                            max="5" step=".01">
+                            max="5" step=".01" value="2.5">
                     </p>
-
                 </div>
+
             </div>
             <div> <div class="block">
+                    <p><h2>Distortion</h2>
+                        <label for='distortion-mix'>Distortion mix</label>
+                        <input id="distortion-mix" name="distortion-mix"
+                            type="range" min="0" max="1" step=".01" value="0">
+                    </p>
                     <p>
                         <label for='distortion-amount'>Distortion amount</label>
                         <input id="distortion-amount" name="distortion-amount"
-                            type="range" min="0" max="1" step=".01">
+                            type="range" min="0.001" max="1" step=".01"
+                            value="0.001">
                     </p>
                     <p>
                         <label for='distortion-oversample'>Distortion oversample</label>
@@ -124,51 +141,36 @@
                         </select>
                     </p>
                 </div>
+                <div class="block">
+                    <p><h2>Delay</h2>
 
-                <div class="block">
-                    <p>
-                        <label for="reverb-amount">Reverb amount</label>
-                        <input id="reverb-amount" name="reverb-amount"
-                            type="range"
-                            min="0" max="10" step=".01">
+                        <label for="delay-amount">Delay amount</label>
+                        <input id="delay-amount" name="delay-amount"
+                            type="range" min="0" max="1" step=".01" value="0">
                     </p>
-                    <p>
-                        <label for="reverb-decay">Reverb decay</label>
-                        <input id="reverb-decay" name="reverb-decay"
-                            type="range"
-                            min="0" max="100" step=".01">
-                    </p>
-                    <p>
-                        <label for='reverb-direction'>Reverb direction</label>
-                        <select id="reverb-direction" name="reverb-direction">
-                            <option value="false">Forward</option>
-                            <option value="true">Backward</option>
-                        </select>
-                    </p>
-                </div>
-                <div class="block">
                     <p>
                         <label for="delay-time">Delay time</label>
                         <input id="delay-time" name="delay-time" type="range"
-                            min="0" max="1" step=".01">
+                            min="0.001" max="1" step=".01" value="0.001">
                     </p>
                     <p>
                         <label for="delay-feedback">Delay feedback</label>
                         <input id="delay-feedback" name="delay-feedback"
                             type="range"
-                            min="0" max="1" step=".01">
+                            min="0.001" max=".99" step=".01" value="0.001">
                     </p>
                     <p>
                         <label for="delay-filter">Delay filter</label>
                         <input id="delay-filter" name="delay-filter"
                             type="range"
-                            min="0" max="20000" step=".01">
+                            min="0.001" max="20000" step=".01" value="0.001">
                     </p>
                 </div>
             </div>
 
         </form>
 
+        <button id="play">Play</button>
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
