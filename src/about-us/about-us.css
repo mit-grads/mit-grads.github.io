@@ -30,3 +30,18 @@ figcaption {
     font-size: 2em;
     margin-left: 40px;
 }
+
+#special {
+    margin-top: 990px;
+    margin-bottom: 700px;
+    text-align: center;
+}
+
+#special a {
+    font-size: 4em;
+    color: white;
+}
+
+#special a:hover {
+    color: black;
+}
