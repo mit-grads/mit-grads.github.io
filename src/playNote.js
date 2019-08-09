@@ -11,7 +11,7 @@ export function playNote(instrument, note, duration) {
     let osc = new p5.Oscillator();
     let filter;
 
-    switch (instrument.filterType) {
+    switch(instrument.filterType) {
         case 'low pass':
             filter = new p5.LowPass();
             break;
