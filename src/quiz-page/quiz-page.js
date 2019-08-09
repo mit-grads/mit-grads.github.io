@@ -27,7 +27,7 @@ if(currentUserInfo.randomFirstNote === 'yes') {
 const interval = new IntervalClass(note);
 
 
-let totalRounds = 10;
+let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
 let roundCounterRendered = roundCounter;
 let instructionsVisible = false;
