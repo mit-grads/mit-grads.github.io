@@ -15,18 +15,35 @@ figure {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
 }
 
 .mii {
-    width: 190px;
-    height: 220px;
+    width: 16vw;
+    height: 30vh;
     object-fit: contain;
     border-radius: 50%;
     background-color: rgb(255, 239, 193);
 }
 
+.bio-space{
+    padding: 0 2vw 0 2vw;
+}
 figcaption {
     font-size: 2em;
     margin-left: 40px;
+}
+
+#special {
+    margin-top: 990px;
+    margin-bottom: 700px;
+    text-align: center;
+}
+
+#special a {
+    font-size: 4em;
+    color: white;
+}
+
+#special a:hover {
+    color: black;
 }
