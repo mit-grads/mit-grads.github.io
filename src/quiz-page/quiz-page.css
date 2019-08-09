@@ -10,6 +10,7 @@ body {
 main {
     position: relative;
     margin: 0;
+    overflow: hidden;
 }
 
 .pop {
@@ -148,7 +149,6 @@ main {
     opacity: 0.95;
     transition: 450ms;
     transition-timing-function: ease-in-out;
-    overflow: hidden;
 }
 .instructions-slider.displayed {
     top: 0;
