@@ -37,7 +37,7 @@ for(let i = 0; i < preLoadedInstruments.length; i++) {
 
 
 
-durationSpan.textContent = durationValue.value;
+durationSpan.textContent = durationValue.value = ' seconds';
 numberOfAnswersSpan.textContent = numberOfAnswers.value;
 
 staffPlaceHolder.addEventListener('mouseover', () => {
@@ -57,7 +57,7 @@ showSettingsButton.addEventListener('click', () => {
 });
 
 durationValue.addEventListener('input', () => {
-    durationSpan.textContent = durationValue.value + ' seconds.';
+    durationSpan.textContent = durationValue.value + ' seconds';
 });
 
 numberOfAnswers.addEventListener('input', () => {
