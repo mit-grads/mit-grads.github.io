@@ -4,6 +4,7 @@ body {
     background-size: cover;
     margin: auto;
     max-width: 900px;
+    height: 100vh;
 }
 main {
     position: relative;
@@ -64,10 +65,9 @@ li {
 
 #instructions {
     display: flex;
-    width: 95%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 5%;
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -83,8 +83,11 @@ li {
     z-index: 1;
 }
 #instructions h2 {
-    font-size: 2rem;
-    margin: 10px;
+    font-size: calc(.9em + 2vw);
+    margin-bottom: 10px;
+}
+#instructions p {
+    font-size: calc(0.5em + .8vw);
 }
 
 
