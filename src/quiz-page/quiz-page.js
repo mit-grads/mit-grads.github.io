@@ -15,11 +15,17 @@ const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
 const instructionsDisplay = document.getElementById('instructions-display');
 const currentUserInfo = storage.getCurrentUserInfo();
+const popUp = document.getElementById('pop-up');
 
-function alert() {
-    window.alert('Ready?');
+popUp.addEventListener('click', () => {
+    popUp.classList.add('no-show');
+    quizRound();
+});
+
+function popupDisplay() {
+    popUp.classList.remove('no-show');
 }
-window.onload = alert;
+popupDisplay();
 
 let note;
 if(currentUserInfo.randomFirstNote === 'yes') {
@@ -47,7 +53,6 @@ let resultsArray = [];
 let lastIntervalUsedArray = [];
 const intervalsAvailableArray = diatonicScale;
 
-quizRound();
 
 instructionsDisplay.addEventListener('click', () => {
     const instructionsSlider = document.querySelector('.instructions-slider');
