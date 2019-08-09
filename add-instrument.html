@@ -24,8 +24,7 @@
                 </h2>
             </div>
         </header>
-
-        <form id="instrument-input-form">
+        <div id="main">
             <div>
                 <div class="block">
                     <p><h2>Oscillator</h2>
@@ -167,19 +166,22 @@
                             min="0.001" max="20000" step=".01" value="0.001">
                     </p>
                 </div>
+                <div class="block" id="controls">
+                    <button id="play">Play</button>
+
+                    <label for="submission-name">Enter new instrument name
+                        <input id="submission-name" type="text"
+                            name="submission-name"></label>
+                    <button id="submit">Submit Instrument</button>
+                </div>
             </div>
-            <div class="block" id="controls">
-                <button id="play">Play</button>
-                <label for="submission-name">Enter new instrument name
-                    <input id="submission-name" type="text"
-                        name="submission-name"></label>
-
-                <button id="submit">Submit Instrument</button>
+                    <div id="instruments">
+                        <h2>Saved presets</h2>
+                        <ul id="preset-ul">
+                        </ul>
+                    </div>
             </div>
-
-        </form>
-
-
+        </div>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"
             integrity="sha256-WVsM3xrcqyuFNF3W1qtIKbHFsD0977nDQA8DCMp1zCw="crossorigin="anonymous"></script>
