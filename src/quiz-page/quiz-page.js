@@ -27,7 +27,7 @@ if(currentUserInfo.randomFirstNote === 'yes') {
 const interval = new IntervalClass(note);
 
 
-let totalRounds = 10;
+let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
 let roundCounterRendered = roundCounter;
 let instructionsVisible = false;
@@ -62,7 +62,6 @@ function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
-
     
     if(currentUserInfo.randomFirstNote === 'yes') {
         const randomNum = Math.floor(Math.random() * 12);
@@ -73,6 +72,7 @@ function quizRound() {
     interval.setFirstNote(note);
 
     const intervalDistance = Math.floor(Math.random() * intervalsAvailableArray.length);
+
     const intervalUsed = intervalsAvailableArray[intervalDistance];
     intervalsAvailableArray.splice(intervalDistance, 1);
     lastIntervalUsedArray.push(intervalUsed);
