@@ -72,7 +72,7 @@ function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
-    
+
     if(currentUserInfo.randomFirstNote === 'yes') {
         const randomNum = Math.floor(Math.random() * 12);
         note = notesArrayObjects[randomNum].name;
@@ -82,14 +82,6 @@ function quizRound() {
     interval.setFirstNote(note);
 
     const intervalDistance = Math.floor(Math.random() * intervalsAvailableArray.length);
-
-    const intervalUsed = intervalsAvailableArray[intervalDistance];
-    intervalsAvailableArray.splice(intervalDistance, 1);
-    lastIntervalUsedArray.push(intervalUsed);
-    if(lastIntervalUsedArray.length === 2) {
-        intervalsAvailableArray.push(lastIntervalUsedArray[0]);
-        lastIntervalUsedArray.splice(0, 1);
-    }
 
     interval.setSecondNote(intervalDistance);
 
