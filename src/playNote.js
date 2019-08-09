@@ -3,12 +3,15 @@
 import { notesArrayObjects } from './data/notes.js';
 
 export function playNote(instrument, note, duration) {
+
+    let audioContext = new AudioContext();
+
     let env = new p5.Envelope();
     let filterEnv = new p5.Envelope();
     let osc = new p5.Oscillator();
     let filter;
 
-    switch(instrument.filterType) {
+    switch (instrument.filterType) {
         case 'low pass':
             filter = new p5.LowPass();
             break;
@@ -47,7 +50,6 @@ export function playNote(instrument, note, duration) {
     filterEnv.setADSR(fA, fD, fS, fR);
     filterEnv.setRange(filterAttackLevel, filterReleaseLevel);
 
-
     osc.setType(instrument.oscWaveform);
     osc.amp(.5);
 
@@ -60,7 +62,6 @@ export function playNote(instrument, note, duration) {
     let distortion = new p5.Distortion();
     distortion.set(instrument.distortionAmount, instrument.distortionOversample);
     distortion.drywet(instrument.distortionMix);
-
     let delay = new p5.Delay();
     delay.delayTime(instrument.delayTime);
     delay.feedback(instrument.delayFeedback);
@@ -75,4 +76,16 @@ export function playNote(instrument, note, duration) {
     osc.connect(filter);
 
     env.play(osc);
+
+    setTimeout(() => {
+        osc.disconnect();
+        distortion.disconnect();
+        filter.disconnect();
+        filterEnv.disconnect();
+        env.disconnect();
+        delay.disconnect();
+        audioContext.suspend();
+        audioContext.close();
+    }, duration * 1000);
+
 }

@@ -100,7 +100,6 @@ function updateDOM() {
         const instrument = findById(instruments, button.id);
 
         button.addEventListener('click', () => {
-            console.log('click!');
             oscWaveform.value = instrument.oscWaveform;
             filterType.value = instrument.filterType;
             filterStartLevel.value = instrument.filterStartLevel;
