@@ -17,6 +17,8 @@ const durationValue = document.getElementById('duration');
 const numberOfAnswersSpan = document.getElementById('number-answers-span');
 const numberOfAnswers = document.getElementById('number-answers');
 const possibleInstrumentList = document.getElementById('instrument-type');
+const numberOfQuestions = document.getElementById('number-questions');
+const numberOfQuestionsSpan = document.getElementById('number-questions-span');
 
 let themeMusic = backgroundMusic;
 initializeTheme();
@@ -37,8 +39,9 @@ for(let i = 0; i < preLoadedInstruments.length; i++) {
 
 
 
-durationSpan.textContent = durationValue.value = ' seconds';
+durationSpan.textContent = durationValue.value + ' seconds';
 numberOfAnswersSpan.textContent = numberOfAnswers.value;
+numberOfQuestionsSpan.textContent = numberOfQuestions.value;
 
 staffPlaceHolder.addEventListener('mouseover', () => {
     startMusic();
@@ -58,6 +61,10 @@ showSettingsButton.addEventListener('click', () => {
 
 durationValue.addEventListener('input', () => {
     durationSpan.textContent = durationValue.value + ' seconds';
+});
+
+numberOfQuestions.addEventListener('input', () => {
+    numberOfQuestionsSpan.textContent = numberOfQuestions.value;
 });
 
 numberOfAnswers.addEventListener('input', () => {
@@ -124,6 +131,7 @@ function inputNewUserSettingsFromForm() {
         randomFirstNote: formData.get('random-first-note'),
         duration: formData.get('duration'),
         playIntervalCount: formData.get('play-interval-counter'),
+        numberOfQuestions: formData.get('number-questions'),
         numberOfAnswers: formData.get('number-answers'),
         soundEffects: formData.get('sound-effects')
     };
