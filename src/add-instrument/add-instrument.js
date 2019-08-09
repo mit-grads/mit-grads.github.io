@@ -1,5 +1,6 @@
 import { playNote } from '../playNote.js';
 import { storage } from '../data/storage.js';
+import { findById } from '../utils.js';
 
 const playButton = document.getElementById('play');
 const oscWaveform = document.getElementById('osc-waveform');
@@ -33,6 +34,7 @@ storedInstruments.forEach((instrument) => {
     newLine(instrument.id, instrument.name);
 });
 
+updateDOM();
 
 function getInstrument() {
     return {
@@ -71,6 +73,7 @@ submitButton.addEventListener('click', () => {
     storage.addCurrentInstrumentData(newInstrument);
     newLine(newInstrument.id, newInstrument.name);
     submissionName.value = '';
+    updateDOM();
 });
 
 
@@ -85,4 +88,39 @@ function newLine(id, name) {
     presetContainer.appendChild(li);
 }
 
-// const presetButtons = document.getElementsByClassName('preset');
+
+function updateDOM() {
+
+    const presetButtons = document.getElementsByClassName('preset');
+
+    [...presetButtons].forEach((button) => {
+
+        const instruments = storage.getInstruments();
+
+        const instrument = findById(instruments, button.id);
+
+        button.addEventListener('click', () => {
+            console.log('click!');
+            oscWaveform.value = instrument.oscWaveform;
+            filterType.value = instrument.filterType;
+            filterStartLevel.value = instrument.filterStartLevel;
+            filterEndLevel.value = instrument.filterEndLevel;
+            oscAttack.value = instrument.oscAttack;
+            oscDecay.value = instrument.oscDecay;
+            oscSustain.value = instrument.oscSustain;
+            oscRelease.value = instrument.oscRelease;
+            filterAttack.value = instrument.filterAttack;
+            filterDecay.value = instrument.filterDecay;
+            filterSustain.value = instrument.filterSustain;
+            filterRelease.value = instrument.filterRelease;
+            filterFrequency.value = instrument.filterFrequency;
+            distortionMix.value = instrument.distortionMix;
+            distortionAmount.value = instrument.distortionAmount;
+            distortionOversample.value = instrument.distortionOversample;
+            delayAmount.value = instrument.delayAmount;
+            delayTime.value = instrument.delayTime;
+            delayFeedback.value = instrument.delayFeedback;
+            delayFilter.value = instrument.delayFilter;
+        });
+    });
+}

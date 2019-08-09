@@ -1,3 +1,4 @@
+import { findById } from '../utils.js';
 import { instruments } from './instrument.js';
 const QUIZ_RESULTS_KEY = 'mit-historical-quiz-results';
 const CURRENT_USER_INFO_KEY = 'mit-current-user-info';
@@ -45,9 +46,12 @@ export const storage = {
         return [];
     },
     preLoadInstruments() {
-        this.save(INSTRUMENTS_KEY, '');
+        const loadedInstruments = this.getInstruments();
         instruments.forEach((instrument) => {
-            this.addCurrentInstrumentData(instrument);
+            const found = findById(loadedInstruments, instrument.id);
+            if(!found) {
+                this.addCurrentInstrumentData(instrument);
+            }
         });
     }
 
