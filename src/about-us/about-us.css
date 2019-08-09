@@ -1,6 +1,10 @@
 body {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
+}
+
+.container {
+    width: 100%;
 }
 
 figure {

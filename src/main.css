@@ -24,10 +24,9 @@ header {
 .top-bar a {
     display: flex;
 }
-/* .top-bar a:hover {
+.top-bar a:hover img {
     transform: translate(-2px, -2px);
-    box-shadow:2px 2px 5px 1px #ABA8B2;
-} */
+}
 .top-bar a:hover div {
     transform: translate(-2px, -2px);
     text-shadow: 2px 1px 1px #ddd;
