@@ -3,6 +3,10 @@ body {
     margin: auto;
 }
 
+.container {
+    width: 100%;
+}
+
 figure {
     margin: 0;
 }
