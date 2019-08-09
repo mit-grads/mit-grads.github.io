@@ -56,7 +56,7 @@ showSettingsButton.addEventListener('click', () => {
 });
 
 durationValue.addEventListener('input', () => {
-    durationSpan.textContent = durationValue.value;
+    durationSpan.textContent = durationValue.value + ' seconds.';
 });
 
 numberOfAnswers.addEventListener('input', () => {
