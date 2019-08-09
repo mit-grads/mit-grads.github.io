@@ -16,6 +16,10 @@ const renderedTotalRounds = document.getElementById('total-rounds');
 const instructionsDisplay = document.getElementById('instructions-display');
 const currentUserInfo = storage.getCurrentUserInfo();
 
+function alert() {
+    window.alert('Ready?');
+}
+window.onload = alert;
 
 let note;
 if(currentUserInfo.randomFirstNote === 'yes') {
@@ -87,7 +91,7 @@ function quizRound() {
     const firstNote = interval.getFirstNote();
     const secondNote = interval.getSecondNote();
 
-    const instrument = findById(instruments, 'trumpet');
+    const instrument = findById(instruments, currentUserInfo.instrumentType);
     const duration = +currentUserInfo.duration;
     const intervalType = currentUserInfo.intervalType;
 
