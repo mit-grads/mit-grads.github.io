@@ -37,7 +37,7 @@ for(let i = 0; i < preLoadedInstruments.length; i++) {
 
 
 
-durationSpan.textContent = durationValue.value = ' seconds';
+durationSpan.textContent = durationValue.value + ' seconds';
 numberOfAnswersSpan.textContent = numberOfAnswers.value;
 
 staffPlaceHolder.addEventListener('mouseover', () => {

@@ -1,3 +1,5 @@
+@import url("/src/quiz-page/animate-css.css");
+
 body {
     max-width: 900px;
     margin: auto;
@@ -60,7 +62,48 @@ main {
     align-items: center;
     padding-top: 20px;
 }
+.answer-container.correct {
+    animation: pulse 400ms;
+    animation-iteration-count: infinite;
+}
+.answer-container.correct-jarring {
+    animation: heartBeat 1000ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+.answer-container.incorrect {
+    animation: jiggle 80ms;
+    animation-iteration-count: infinite;
+}
+.answer-container.incorrect-jarring {
+    animation: shake 200ms;
+    animation-timing-function: cubic-bezier(.36,.07,.19,.97);
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
 
+@keyframes jiggle {
+    0% {
+        transform: rotate(-1deg);
+    }
+    50% {
+        transform: rotate(1deg);
+    }
+}
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-15px, 11px, 0);
+    }
+    20%, 80% {
+      transform: translate3d(15px, 11px, 0);
+    }
+    30%, 50%, 70% {
+      transform: translate3d(-15px, -11px, 0);
+    }
+    40%, 60% {
+      transform: translate3d(15px, -11px, 0);
+    }
+  }
 
 #instructions-display {
     position: absolute;
