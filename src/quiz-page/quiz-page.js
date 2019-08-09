@@ -20,6 +20,17 @@ const incorrectJarringNoise = document.getElementById('incorrect-jarring-sfx');
 const correctNoise = document.getElementById('correct-sfx');
 const correctJarringNoise = document.getElementById('correct-jarring-sfx');
 const currentUserInfo = storage.getCurrentUserInfo();
+const popUp = document.getElementById('pop-up');
+
+popUp.addEventListener('click', () => {
+    popUp.classList.add('no-show');
+    quizRound();
+});
+
+function popupDisplay() {
+    popUp.classList.remove('no-show');
+}
+popupDisplay();
 
 let note;
 if(currentUserInfo.randomFirstNote === 'yes') {
@@ -32,7 +43,7 @@ if(currentUserInfo.randomFirstNote === 'yes') {
 const interval = new IntervalClass(note);
 
 
-let totalRounds = 10;
+let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
 let roundCounterRendered = roundCounter;
 let instructionsVisible = false;
@@ -47,7 +58,6 @@ let resultsArray = [];
 let lastIntervalUsedArray = [];
 const intervalsAvailableArray = diatonicScale;
 
-quizRound();
 
 instructionsDisplay.addEventListener('click', () => {
     const instructionsSlider = document.querySelector('.instructions-slider');
@@ -67,7 +77,6 @@ function quizRound() {
     disableNextButton();
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
-
     
     if(currentUserInfo.randomFirstNote === 'yes') {
         const randomNum = Math.floor(Math.random() * 12);
@@ -78,6 +87,7 @@ function quizRound() {
     interval.setFirstNote(note);
 
     const intervalDistance = Math.floor(Math.random() * intervalsAvailableArray.length);
+
     const intervalUsed = intervalsAvailableArray[intervalDistance];
     intervalsAvailableArray.splice(intervalDistance, 1);
     lastIntervalUsedArray.push(intervalUsed);

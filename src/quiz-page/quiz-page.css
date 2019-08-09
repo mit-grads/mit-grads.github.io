@@ -12,6 +12,30 @@ main {
     margin: 0;
 }
 
+.pop {
+    display: flex;
+    visibility: visible;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    opacity: .9;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.pop.no-show {
+    visibility: hidden;
+}
 
 .choices {
     display: flex;
@@ -47,7 +71,7 @@ main {
 }
 .choices div.selected {
     background-color: #F1F1D4;
-    border: 2px solid #6893E2;
+    border: 2px solid#6893E2 ;
     color: black;
 }
 
