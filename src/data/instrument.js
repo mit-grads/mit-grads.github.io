@@ -40,12 +40,37 @@ export const instruments = [
         filterSustain: 0.75,
         filterType: 'high pass',
         id: 'banjo-id',
-        name: 'banjo',
+        name: 'Banjo',
         oscAttack: 0,
         oscDecay: 0.32,
         oscRelease: 1.5,
         oscSustain: 0.3,
         oscWaveform: 'sawtooth',
+    },
+    {
+
+        delayAmount: 0.11,
+        delayFeedback: 0.001,
+        delayFilter: 0.001,
+        delayTime: 0.001,
+        distortionAmount: 0.501,
+        distortionMix: 0.14,
+        distortionOversample: '2x',
+        filterAttack: 0,
+        filterDecay: 0.18,
+        filterEndLevel: 0.25,
+        filterFrequency: 15765,
+        filterRelease: 1.87,
+        filterStartLevel: 0.47,
+        filterSustain: 0.5,
+        filterType: 'low pass',
+        id: 'electric trumpet-id',
+        name: 'Electric Trumpet',
+        oscAttack: 0,
+        oscDecay: 1.54,
+        oscRelease: 2.5,
+        oscSustain: 0.5,
+        oscWaveform: 'sawtooth'
     }
 ];
 
