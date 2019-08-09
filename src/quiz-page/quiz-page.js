@@ -14,6 +14,11 @@ const nextButton = document.getElementById('next-button');
 const renderedRoundNumber = document.getElementById('round-number');
 const renderedTotalRounds = document.getElementById('total-rounds');
 const instructionsDisplay = document.getElementById('instructions-display');
+const answerContainer = document.querySelector('.answer-container');
+const incorrectNoise = document.getElementById('incorrect-sfx');
+const incorrectJarringNoise = document.getElementById('incorrect-jarring-sfx');
+const correctNoise = document.getElementById('correct-sfx');
+const correctJarringNoise = document.getElementById('correct-jarring-sfx');
 const currentUserInfo = storage.getCurrentUserInfo();
 const popUp = document.getElementById('pop-up');
 
@@ -159,9 +164,34 @@ nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;
     const buttons = [...answerButtons];
-    for(let i = 0; i < buttons.length; i++) {
-        if(buttons[i].className === 'answer-button selected') {
-            selectedButton = buttons[i].id;
+    buttons.forEach(button => {
+        if(button.className === 'answer-button selected') {
+            selectedButton = button.id;
+        }
+    });
+
+    if(currentUserInfo.soundEffects === 'some') {
+        if(selectedButton === correctAnswer) {
+            answerContainer.classList.add('correct');
+            setTimeout(() => answerContainer.classList.remove('correct'), 400);
+            correctNoise.play();
+        }
+        else {
+            answerContainer.classList.add('incorrect');
+            setTimeout(() => answerContainer.classList.remove('incorrect'), 400);
+            incorrectNoise.play();
+        }
+    }
+    else if(currentUserInfo.soundEffects === 'jarring') {
+        if(selectedButton === correctAnswer) {
+            answerContainer.classList.add('correct-jarring');
+            setTimeout(() => answerContainer.classList.remove('correct-jarring'), 1000);
+            correctJarringNoise.play();
+        }
+        else {
+            answerContainer.classList.add('incorrect-jarring');
+            setTimeout(() => answerContainer.classList.remove('incorrect-jarring'), 700);
+            incorrectJarringNoise.play();
         }
     }
 
