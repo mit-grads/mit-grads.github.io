@@ -23,7 +23,7 @@ initializeTheme();
 initializeUserName();
 
 const preLoadedInstruments = storage.getInstruments();
-console.log(preLoadedInstruments);
+
 for(let i = 0; i < preLoadedInstruments.length; i++) {
     const instrument = preLoadedInstruments[i];
     const dom = renderInstrumentOptionsToDom(instrument);
