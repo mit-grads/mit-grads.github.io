@@ -1,4 +1,5 @@
 import { storage } from '../data/storage.js';
+import { renderInstrumentOptionsToDom } from './render-instrument-DOM.js';
 
 const staffPlaceHolder = document.getElementById('staff-place-holder');
 const instructions = document.getElementById('instructions');
@@ -15,10 +16,27 @@ const durationSpan = document.getElementById('duration-span');
 const durationValue = document.getElementById('duration');
 const numberOfAnswersSpan = document.getElementById('number-answers-span');
 const numberOfAnswers = document.getElementById('number-answers');
-let themeMusic = backgroundMusic;
+const possibleInstrumentList = document.getElementById('instrument-type');
 
+let themeMusic = backgroundMusic;
 initializeTheme();
 initializeUserName();
+storage.preLoadInstruments();
+
+while(possibleInstrumentList.firstChild) {
+    possibleInstrumentList.removeChild(possibleInstrumentList.firstChild);
+}
+
+const preLoadedInstruments = storage.getInstruments();
+
+for(let i = 0; i < preLoadedInstruments.length; i++) {
+    const instrument = preLoadedInstruments[i];
+    const dom = renderInstrumentOptionsToDom(instrument);
+    possibleInstrumentList.appendChild(dom);
+}
+
+
+
 durationSpan.textContent = durationValue.value;
 numberOfAnswersSpan.textContent = numberOfAnswers.value;
 
@@ -39,7 +57,7 @@ showSettingsButton.addEventListener('click', () => {
 });
 
 durationValue.addEventListener('input', () => {
-    durationSpan.textContent = durationValue.value;
+    durationSpan.textContent = durationValue.value + ' seconds.';
 });
 
 numberOfAnswers.addEventListener('input', () => {
@@ -101,11 +119,13 @@ function inputNewUserSettingsFromForm() {
     const formData = new FormData(landingPageForm);
     const userInfo = {
         name: formData.get('user-name'),
+        instrumentType: formData.get('instrument-type'),
         intervalType: formData.get('interval-type'),
         randomFirstNote: formData.get('random-first-note'),
         duration: formData.get('duration'),
         playIntervalCount: formData.get('play-interval-counter'),
         numberOfAnswers: formData.get('number-answers'),
+        soundEffects: formData.get('sound-effects')
     };
     storage.saveCurrentUserInfo(userInfo);
 }

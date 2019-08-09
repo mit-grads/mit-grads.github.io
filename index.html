@@ -36,27 +36,14 @@
                 <p>You may listen to an interval again by pressing the "Play Interval" button.</p>
                 <p>When you've made your choice click the "Submit" button to go on to a new interval.</p>
                 <p>At the end of the quiz your results will be displayed.</p>
-                <!-- <p id="intervals">The following shorthand is used for interval identification:
-                    <ul class="intervals-list">
-                        <li>P1 = Perfect Unison</li>
-                        <li>min 2 = Minor Second</li>
-                        <li>Maj 2 = Major Second</li>
-                        <li>min 3 = Minor Third</li>
-                        <li>Maj 3 = Major Third</li>
-                        <li>P4 = Perfect Fourth</li>
-                        <li>Tri-Tone = Augmented Fourth/Diminished Fifth</li>
-                        <li>P5 = Perfect Fifth</li>
-                        <li>min 6 = Minor Sixth</li>
-                        <li>Maj 6 = Major Sixth</li>
-                        <li>min 7 = Minor Seventh</li>
-                        <li>Maj 7 = Major Seventh</li>
-                        <li>P8 = Perfect Octave</li>
-                    </ul>
-                <p> -->
                 </p>
                 <button id="show-settings-button">Show Optional Quiz Settings</button>
                 <form id="landing-page-form">
                     <div id="settings-form" class="hidden">
+                        <p>
+                            <label for="instrument-type">What Pseudo Instrument Would You Like To Hear?</label>
+                            <select id="instrument-type" name="instrument-type"></select>
+                        </p>
                         <p>
                             <label for="interval-type">How Do You Want To Hear The Intervals?</label>
                             <select name="interval-type">
@@ -86,7 +73,6 @@
                         <p>
                             <label for="play-interval-counter">How Many Times Do You Want To Be Able To Play The Interval?</label>
                             <select name="play-interval-counter">
-                            <datalist id="interval-counter-values">
                                 <option value="Unlimited">
                                     Unlimited Times
                                 </option>
@@ -111,6 +97,20 @@
                             <label for="number-answers">How Many Answers Do You Want To Choose From?</label>
                             <input type="range" id="number-answers" name="number-answers" min="2" max="5" step="1" value="3"><span id="number-answers-span"></span>
                         </p>
+                        <p>
+                            <label for="sound-effects">What Level Of Sound Effects Do You Want?</label>
+                            <select name="sound-effects">
+                                <option value="none">
+                                    No SFX
+                                </option>
+                                <option value="some">
+                                    Some SFX
+                                </option>
+                                <option value="jarring">
+                                    Jarring SFX
+                                </option>
+                            </select>
+                        </p>                        
                     </div>
                     <input type="text" id="user-name" name= "user-name" autofocus placeholder="your name" required>
                     <button>Begin the Quiz</button>
