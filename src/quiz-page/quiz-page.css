@@ -16,14 +16,12 @@ main {
 .pop {
     display: flex;
     visibility: visible;
-    width: 160px;
     background-color: #555;
     color: #fff;
-    text-align: center;
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
-    z-index: 5;
+    z-index: 1;
     top: 10px;
     left: 10%;
     width: 80%;
