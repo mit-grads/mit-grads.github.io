@@ -28,6 +28,7 @@ while(possibleInstrumentList.firstChild) {
 }
 
 const preLoadedInstruments = storage.getInstruments();
+
 for(let i = 0; i < preLoadedInstruments.length; i++) {
     const instrument = preLoadedInstruments[i];
     const dom = renderInstrumentOptionsToDom(instrument);
