@@ -55,8 +55,6 @@ renderedRoundNumber.textContent = roundCounterRendered + 1;
 renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
-let lastIntervalUsedArray = [];
-const intervalsAvailableArray = diatonicScale;
 
 
 instructionsDisplay.addEventListener('click', () => {
@@ -86,7 +84,7 @@ function quizRound() {
     }
     interval.setFirstNote(note);
 
-    const intervalDistance = Math.floor(Math.random() * intervalsAvailableArray.length);
+    const intervalDistance = Math.floor(Math.random() * diatonicScale.length);
 
     interval.setSecondNote(intervalDistance);
 
