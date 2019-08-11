@@ -1,4 +1,4 @@
-import { renderAnswerOption } from '../src/quiz-page/render-answer-options.js';
+import { renderAnswerOption } from '../src/render-answer-options.js';
 const test = QUnit.test;
 
 QUnit.module('render answer options');
