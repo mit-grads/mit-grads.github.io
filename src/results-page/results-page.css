@@ -15,11 +15,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 .container h2 {
     margin-bottom: 10px;
 }
-
 #results-table {
     border: 2px solid  #4C4B63;
     border-collapse: collapse;
@@ -46,7 +44,6 @@ table th, table td {
     text-align: right;
     padding: 10px;
 }
-
 table tr td:first-of-type, table thead th:first-of-type {
     text-align: left;
 }

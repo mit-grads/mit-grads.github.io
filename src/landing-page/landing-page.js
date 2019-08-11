@@ -1,7 +1,7 @@
 import { storage } from '../data/storage.js';
 import { renderInstrumentOptionsToDom } from './render-instrument-DOM.js';
 
-const splashImage = document.getElementById('splash-image');
+const staffPlaceHolder = document.getElementById('staff-place-holder');
 const instructions = document.getElementById('instructions');
 const landingPageForm = document.getElementById('landing-page-form');
 const userName = document.getElementById('user-name');
@@ -19,52 +19,56 @@ const numberOfAnswers = document.getElementById('number-answers');
 const possibleInstrumentList = document.getElementById('instrument-type');
 const numberOfQuestions = document.getElementById('number-questions');
 const numberOfQuestionsSpan = document.getElementById('number-questions-span');
-const preLoadedInstruments = storage.getInstruments();
 
 let themeMusic = backgroundMusic;
 initializeTheme();
 initializeUserName();
-
-splashImage.addEventListener('mouseover', () => {
-    startMusic();
-});
-
-splashImage.addEventListener('click', () => {
-    showInstructions();
-});
-
-
-showSettingsButton.addEventListener('click', () => {
-    settingsForm.classList.remove('hidden');
-});
-
 storage.preLoadInstruments();
+
 while(possibleInstrumentList.firstChild) {
     possibleInstrumentList.removeChild(possibleInstrumentList.firstChild);
 }
+
+const preLoadedInstruments = storage.getInstruments();
+
 for(let i = 0; i < preLoadedInstruments.length; i++) {
     const instrument = preLoadedInstruments[i];
     const dom = renderInstrumentOptionsToDom(instrument);
     possibleInstrumentList.appendChild(dom);
 }
 
+
+
 durationSpan.textContent = durationValue.value + ' seconds';
-durationValue.addEventListener('input', () => {
-    durationSpan.textContent = durationValue.value + ' seconds';
-});
-
-numberOfQuestionsSpan.textContent = numberOfQuestions.value;
-numberOfQuestions.addEventListener('input', () => {
-    numberOfQuestionsSpan.textContent = numberOfQuestions.value;
-});
-
 numberOfAnswersSpan.textContent = numberOfAnswers.value;
-numberOfAnswers.addEventListener('input', () => {
-    numberOfAnswersSpan.textContent = numberOfAnswers.value;
+numberOfQuestionsSpan.textContent = numberOfQuestions.value;
+
+staffPlaceHolder.addEventListener('mouseover', () => {
+    startMusic();
+});
+
+staffPlaceHolder.addEventListener('click', () => {
+    showInstructions();
 });
 
 landingPageForm.addEventListener('submit', (event) => {
     goToQuizPage(event);
+});
+
+showSettingsButton.addEventListener('click', () => {
+    settingsForm.classList.remove('hidden');
+});
+
+durationValue.addEventListener('input', () => {
+    durationSpan.textContent = durationValue.value + ' seconds';
+});
+
+numberOfQuestions.addEventListener('input', () => {
+    numberOfQuestionsSpan.textContent = numberOfQuestions.value;
+});
+
+numberOfAnswers.addEventListener('input', () => {
+    numberOfAnswersSpan.textContent = numberOfAnswers.value;
 });
 
 function initializeTheme() {
@@ -72,19 +76,19 @@ function initializeTheme() {
     const themeId = searchParams.get('theme');
     if(themeId) {
         if(themeId.includes('dirty')) {
-            splashImage.querySelector('figure img').src = './assets/dirty-splash.gif';
+            staffPlaceHolder.querySelector('figure img').src = './assets/dirty-splash.gif';
             themeMusic = dirtyStickMusic;
         } 
         else if(themeId.includes('space') || themeId.includes('synth')) {
-            splashImage.querySelector('figure img').src = './assets/notes-in-space.gif';
+            staffPlaceHolder.querySelector('figure img').src = './assets/notes-in-space.gif';
             themeMusic = synthesizerMusic;
         }
         else if(themeId.includes('pink') || themeId.includes('floyd')) {
-            splashImage.querySelector('figure img').src = './assets/eternity.gif';
+            staffPlaceHolder.querySelector('figure img').src = './assets/eternity.gif';
             themeMusic = floydMusic;
         }
         else if(themeId.includes('xmas') || themeId.includes('christmas')) {
-            splashImage.querySelector('figure img').src = './assets/xmas-notes.gif';
+            staffPlaceHolder.querySelector('figure img').src = './assets/xmas-notes.gif';
             themeMusic = christmasMusic;
         }
     }
@@ -99,7 +103,7 @@ function initializeUserName() {
 
 function showInstructions() {
     document.documentElement.scrollTop = document.body.scrollTop = window.pageYOffset = 0;
-    splashImage.querySelector('figure').classList.add('fadeout');
+    staffPlaceHolder.querySelector('figure').classList.add('fadeout');
     instructions.classList.add('displayed');
 }
 
@@ -114,12 +118,10 @@ function startMusic() {
     themeMusic.play();
     setTimeout(() => stopMusic(), 45 * 1000);
 }
-
 function stopMusic() {
     themeMusic.pause();
     themeMusic.currentTime = 0;
 }
-
 function inputNewUserSettingsFromForm() {
     const formData = new FormData(landingPageForm);
     const userInfo = {

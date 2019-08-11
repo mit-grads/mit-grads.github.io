@@ -74,6 +74,7 @@ export const notesArrayObjects = [
     }
 ];
 
+
 export const diatonicScale = [
     'P1',
     'Maj 2',
@@ -84,7 +85,6 @@ export const diatonicScale = [
     'Maj 7',
     'P8'
 ];
-
 export const chromaticScale = [
     'P1',
     'min 2',
