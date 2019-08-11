@@ -18,23 +18,20 @@ header {
     align-items: center;
     position: relative;
 }
-
 .top-bar a, .top-bar a:visited, .top-bar a:hover  {
     text-decoration:none;
 }
-
 .top-bar a {
     display: flex;
 }
-
 .top-bar a:hover img {
     transform: translate(-2px, -2px);
 }
-
 .top-bar a:hover div {
     transform: translate(-2px, -2px);
     text-shadow: 2px 1px 1px #ddd;
 }
+
 
 .top-bar img {
     height: 80px;
@@ -43,7 +40,6 @@ header {
     opacity: 0.8;
     border-radius: 3px;
 }
-
 .top-bar div {
     padding-top: 10px;
     align-self: center;
@@ -52,7 +48,6 @@ header {
     opacity: 0.45;
     transition: transform 150ms, background-color 150ms, box-shadow 150ms;
 }
-
 .top-bar a .first-letter {
     font-family: 'Oleo Script', sans-serif;
     font-size: 1.7em;
@@ -63,13 +58,11 @@ h1{
     font-size: 2em;
     margin:0 0 0 0;
 }
-
 h2{
     font-family: 'Red Hat Display', sans-serif;
     font-size: 1.5em;
     margin: 0 0 0 0;
 }
-
 p, ul, li, figcaption {
     font-family: 'Red Hat Display', sans-serif;
     font-size: 1em;
@@ -88,13 +81,13 @@ button {
     transition: transform 150ms, background-color 150ms, box-shadow 150ms, black 150ms;
     cursor: pointer;
 }
-
 button:hover {
     transform: translate(-2px, -2px);
     box-shadow:2px 2px 5px 1px #ABA8B2;
     color: black;
     background-color: #EFEFEF;
 }
+
 
 footer {
     background-image: linear-gradient(to bottom right, #4C4B63, #6893E2, lightsteelblue);
@@ -112,6 +105,7 @@ footer p {
     color:#4C4B63;
 }
 
+
 .hidden {
     display: none;
 }
@@ -120,7 +114,6 @@ footer p {
     width:1000px ;
     margin:50px auto;
 }
-
 #about {
     margin-bottom:20px;
 }
