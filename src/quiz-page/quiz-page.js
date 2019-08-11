@@ -1,8 +1,8 @@
-import { playInterval } from '../quiz-page/playInterval.js';
-import { findById, shuffle, sortData } from '../utility-functions/utils.js';
+import { playInterval } from '../playInterval.js';
+import { findById, shuffle, sortData } from '../utils.js';
 import { instruments } from '../data/instrument.js';
 import { IntervalClass } from '../data/interval-class.js';
-import { renderAnswerOption } from '../quiz-page/render-answer-options.js';
+import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
 import { captureResults } from '../quiz-page/capture-results.js';
 import { storage } from '../data/storage.js';
@@ -27,9 +27,21 @@ popUp.addEventListener('click', () => {
     quizRound();
 });
 
+function popupDisplay() {
+    popUp.classList.remove('no-show');
+}
 popupDisplay();
 
+let note;
+if(currentUserInfo.randomFirstNote === 'yes') {
+    const randomNum = Math.floor(Math.random() * 12);
+    note = notesArrayObjects[randomNum].name;
+} else {
+    note = 'A1';
+}
+
 const interval = new IntervalClass(note);
+
 
 let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
@@ -38,19 +50,13 @@ let instructionsVisible = false;
 let answerButtons;
 let correctAnswer;
 let playCallback;
-let resultsArray = [];
-let lastIntervalUsedArray = [];
-let note;
 
 renderedRoundNumber.textContent = roundCounterRendered + 1;
 renderedTotalRounds.textContent = totalRounds;
 
-if(currentUserInfo.randomFirstNote === 'yes') {
-    const randomNum = Math.floor(Math.random() * 12);
-    note = notesArrayObjects[randomNum].name;
-} else {
-    note = 'A1';
-}
+let resultsArray = [];
+let lastIntervalUsedArray = [];
+
 
 instructionsDisplay.addEventListener('click', () => {
     const instructionsSlider = document.querySelector('.instructions-slider');
@@ -82,7 +88,7 @@ function quizRound() {
     let intervalDistance = Math.floor(Math.random() * diatonicScale.length);
     
     lastIntervalUsedArray.push(intervalDistance);
-    
+
     if(lastIntervalUsedArray.length === 2) {
         if(lastIntervalUsedArray[0] === intervalDistance) {
             if(intervalDistance === diatonicScale.length - 1) {
@@ -118,6 +124,7 @@ function quizRound() {
         }
     };
 
+
     playIntervalButton.addEventListener('click', playCallback);
 
     let answerOptionsArray = [];
@@ -143,6 +150,7 @@ function quizRound() {
         const dom = renderAnswerOption(answerOptionsArray[i]);
         choiceSection.appendChild(dom);
     }
+
 
     answerButtons = document.getElementsByClassName('answer-button');
     [...answerButtons].forEach((button) => {
@@ -197,6 +205,7 @@ nextButton.addEventListener('click', () => {
         choiceSection.removeChild(choiceSection.firstChild);
     }
 
+
     roundCounter++;
     roundCounterRendered = roundCounter;
     if(roundCounterRendered >= totalRounds) {
@@ -229,8 +238,4 @@ function disableNextButton() {
     if(isButtonSelected.length === 0) {
         nextButton.disabled = true;
     }
-}
-
-function popupDisplay() {
-    popUp.classList.remove('no-show');
 }

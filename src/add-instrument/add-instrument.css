@@ -13,7 +13,6 @@ body {
     margin:5px 2.5px;
     text-align: left;
 }
-
 h2{
     margin-bottom:10px;
     margin-left: 10px;
@@ -25,11 +24,9 @@ label{
         margin:10px;
 
 }
-
 input, select{
     margin:5px;
 }
-
 #controls{
     display:flex;
     flex-direction: column;
@@ -38,11 +35,9 @@ input, select{
     justify-content: center;
     text-align: center;
 }
-
 #play, #submit {
     margin:5px;
 }
-
 li {
     list-style-type: none;
 }
@@ -58,7 +53,6 @@ li {
     margin-top:10px;
     padding:0 0 0 0;
 }
-
 #instruments {
     margin-top: 15px;
 }
