@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { notesArrayObjects } from './data/notes.js';
+import { notesArrayObjects } from '../data/notes.js';
 
 export function playNote(instrument, note, duration) {
 
@@ -87,5 +87,4 @@ export function playNote(instrument, note, duration) {
         audioContext.suspend();
         audioContext.close();
     }, duration * 1000);
-
 }
