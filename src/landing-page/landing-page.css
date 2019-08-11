@@ -30,7 +30,7 @@ li {
     margin-left: 20px;
 }
 
-#staff-place-holder {
+#splash-image {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,12 +38,12 @@ li {
     z-index: 0;
 }
 
-#staff-place-holder img {
+#splash-image img {
     width: 100vw;
     max-width: 900px;
 }
 
-#staff-place-holder p {
+#splash-image p {
     position: absolute;
     bottom: 4px;
     left: 47%;
@@ -56,17 +56,17 @@ li {
     opacity: 0.8;
 }
 
-#staff-place-holder figure {
+#splash-image figure {
     cursor: pointer;
     transition: 0.4s;
     transition-timing-function: ease-in-out;
 }
 
-#staff-place-holder figure:hover {
+#splash-image figure:hover {
     transform: scale(1.01);
 }
 
-#staff-place-holder figure.fadeout {
+#splash-image figure.fadeout {
     opacity: 0;
     cursor: default;
 }

@@ -29,7 +29,6 @@ popUp.addEventListener('click', () => {
 
 popupDisplay();
 
-const interval = new IntervalClass(note);
 
 let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
@@ -51,6 +50,9 @@ if(currentUserInfo.randomFirstNote === 'yes') {
 } else {
     note = 'A1';
 }
+
+const interval = new IntervalClass(note);
+
 
 instructionsDisplay.addEventListener('click', () => {
     const instructionsSlider = document.querySelector('.instructions-slider');
