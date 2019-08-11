@@ -6,29 +6,25 @@ body {
     max-width: 900px;
     height: 100vh;
 }
-
 main {
     position: relative;
 }
-
 figure {
     margin: 0;
 }
-
 li {
     font-family: 'Blinker', sans-serif;
 }
-
 .intervals-list {
     height: 9em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-
 .intervals-list li {
     margin-left: 20px;
 }
+
 
 #staff-place-holder {
     width: 100%;
@@ -37,12 +33,10 @@ li {
     position: relative;
     z-index: 0;
 }
-
 #staff-place-holder img {
     width: 100vw;
     max-width: 900px;
 }
-
 #staff-place-holder p {
     position: absolute;
     bottom: 4px;
@@ -55,21 +49,19 @@ li {
     border-radius: 10px;
     opacity: 0.8;
 }
-
 #staff-place-holder figure {
     cursor: pointer;
     transition: 0.4s;
     transition-timing-function: ease-in-out;
 }
-
 #staff-place-holder figure:hover {
     transform: scale(1.01);
 }
-
 #staff-place-holder figure.fadeout {
     opacity: 0;
     cursor: default;
 }
+
 
 #instructions {
     display: flex;
@@ -86,20 +78,18 @@ li {
     transition-timing-function: ease-in-out;
     z-index: -1;
 }
-
 #instructions.displayed {
     opacity: 1;
     z-index: 1;
 }
-
 #instructions h2 {
     font-size: calc(.9em + 2vw);
     margin-bottom: 10px;
 }
-
 #instructions p {
     font-size: calc(0.5em + .8vw);
 }
+
 
 #landing-page-form #user-name {
     height: 34px;
@@ -109,7 +99,6 @@ li {
     font-size: 1.2em;
     border: 2px inset gray;
 }
-
 #landing-page-form button {
     height: 40px;
     margin: 0;

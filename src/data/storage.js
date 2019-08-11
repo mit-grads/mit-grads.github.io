@@ -1,4 +1,4 @@
-import { findById } from '../utility-functions/utils.js';
+import { findById } from '../utils.js';
 import { instruments } from './instrument.js';
 const QUIZ_RESULTS_KEY = 'mit-historical-quiz-results';
 const CURRENT_USER_INFO_KEY = 'mit-current-user-info';
@@ -6,7 +6,6 @@ const INSTRUMENTS_KEY = 'instruments';
 
 export const storage = {
     storage: window.localStorage,
-
     save(key, item) {
         this.storage.setItem(key, JSON.stringify(item));
     },
@@ -55,4 +54,5 @@ export const storage = {
             }
         });
     }
+
 };

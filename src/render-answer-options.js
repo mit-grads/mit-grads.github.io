@@ -3,8 +3,6 @@
 export function renderAnswerOption(answer) {
     const div = document.createElement('div');
     div.className = 'answer-button';
-    div.id = answer;
-
     const intervalP = document.createElement('p');
     const intervalText = document.createTextNode(answer);
     intervalP.appendChild(intervalText);

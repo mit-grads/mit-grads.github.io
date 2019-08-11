@@ -11,7 +11,6 @@ const quizResults = storage.getQuizResults(userInfo.name);
 
 let totalCorrect = 0;
 let totalAttempts = 0;
-
 quizResults.forEach(element => {
     totalCorrect += element.correct;
     totalAttempts += element.attempts;
@@ -20,7 +19,6 @@ quizResults.forEach(element => {
 userName.textContent = userInfo.name;
 const percentCorrect = (totalCorrect / totalAttempts * 100);
 userCorrectPercent.textContent = percentCorrect + '%';
-
 if(percentCorrect === 100) {
     resultsComment.textContent = 'Wow! You really know your intervals! Great Job!';
 } else if(percentCorrect < 100 && percentCorrect >= 90) {
@@ -44,8 +42,8 @@ if(percentCorrect === 100) {
 } else {
     resultsComment.textContent = 'Maybe you should look into plumbing!';
 }
-
 renderTable(quizResults);
+
 
 function renderTable(quizResults) {
     resultsTable.appendChild(renderTHead());
