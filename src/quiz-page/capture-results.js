@@ -24,6 +24,6 @@ export function captureResults(correctAnswer, selected, resultsArray) {
         }
         resultsArray.push(intervalObj);
     }
-
+    
     return resultsArray;
 }

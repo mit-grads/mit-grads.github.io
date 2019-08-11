@@ -1,6 +1,6 @@
-import { playNote } from '../playNote.js';
+import { playNote } from '../utility-functions/playNote.js';
 import { storage } from '../data/storage.js';
-import { findById } from '../utils.js';
+import { findById } from '../utility-functions/utils.js';
 
 const playButton = document.getElementById('play');
 const oscWaveform = document.getElementById('osc-waveform');
@@ -77,7 +77,6 @@ submitButton.addEventListener('click', () => {
 });
 
 
-
 function newLine(id, name) {
     const li = document.createElement('li');
     const button = document.createElement('button');
@@ -87,7 +86,6 @@ function newLine(id, name) {
     li.appendChild(button);
     presetContainer.appendChild(li);
 }
-
 
 function updateDOM() {
 

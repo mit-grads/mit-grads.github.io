@@ -12,7 +12,6 @@ export class IntervalClass {
             this.scale = chromaticScale;
         }
     }
-    
     getFirstNote() {
         return this.firstNote;
     }
