@@ -1,6 +1,6 @@
 import { playInterval } from '../playInterval.js';
 import { findById, shuffle, sortData } from '../utils.js';
-import { instruments } from '../data/instrument.js';
+// import { instruments } from '../data/instrument.js';
 import { IntervalClass } from '../data/interval-class.js';
 import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
@@ -86,7 +86,7 @@ function quizRound() {
     interval.setFirstNote(note);
 
     let intervalDistance = Math.floor(Math.random() * diatonicScale.length);
-    
+
     lastIntervalUsedArray.push(intervalDistance);
 
     if(lastIntervalUsedArray.length === 2) {
@@ -101,9 +101,11 @@ function quizRound() {
     }
 
     interval.setSecondNote(intervalDistance);
-    
+
     const firstNote = interval.getFirstNote();
     const secondNote = interval.getSecondNote();
+
+    const instruments = storage.getInstruments();
 
     const instrument = findById(instruments, currentUserInfo.instrumentType);
     const duration = +currentUserInfo.duration;
