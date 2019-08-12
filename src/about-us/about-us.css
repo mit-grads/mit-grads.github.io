@@ -40,18 +40,3 @@ figcaption {
     min-width: 10vw;
     text-align: center;
 }
-
-#special {
-    margin-top: 990px;
-    margin-bottom: 700px;
-    text-align: center;
-}
-
-#special a {
-    font-size: 4em;
-    color: white;
-}
-
-#special a:hover {
-    color: black;
-}
