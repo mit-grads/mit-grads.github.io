@@ -1,6 +1,5 @@
 import { playInterval } from '../playInterval.js';
 import { findById, shuffle, sortData } from '../utils.js';
-// import { instruments } from '../data/instrument.js';
 import { IntervalClass } from '../data/interval-class.js';
 import { renderAnswerOption } from '../render-answer-options.js';
 import { GenerateInterval } from '../quiz-page/generate-interval.js';
