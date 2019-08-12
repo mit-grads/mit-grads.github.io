@@ -40,8 +40,6 @@ if(currentUserInfo.randomFirstNote === 'yes') {
     note = 'A1';
 }
 
-const interval = new IntervalClass(note);
-
 
 let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
@@ -56,6 +54,9 @@ renderedTotalRounds.textContent = totalRounds;
 
 let resultsArray = [];
 let lastIntervalUsedArray = [];
+
+
+const interval = new IntervalClass(note);
 
 
 instructionsDisplay.addEventListener('click', () => {
@@ -113,7 +114,7 @@ function quizRound() {
 
     setTimeout(() => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
-    }, 1000);
+    }, 2000);
 
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);

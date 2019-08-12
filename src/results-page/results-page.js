@@ -17,7 +17,7 @@ quizResults.forEach(element => {
 });
 
 userName.textContent = userInfo.name;
-const percentCorrect = (totalCorrect / totalAttempts * 100);
+const percentCorrect = Math.floor((totalCorrect / totalAttempts * 100));
 userCorrectPercent.textContent = percentCorrect + '%';
 if(percentCorrect === 100) {
     resultsComment.textContent = 'Wow! You really know your intervals! Great Job!';
