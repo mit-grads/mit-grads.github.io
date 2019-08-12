@@ -114,7 +114,7 @@ function quizRound() {
 
     setTimeout(() => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
-    }, 1000);
+    }, 2000);
 
     playCallback = () => {
         playInterval(firstNote, secondNote, instrument, intervalType, duration);
