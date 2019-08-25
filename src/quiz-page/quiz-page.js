@@ -33,13 +33,16 @@ function popupDisplay() {
 popupDisplay();
 
 let note;
-if(currentUserInfo.randomFirstNote === 'yes') {
-    const randomNum = Math.floor(Math.random() * 12);
-    note = notesArrayObjects[randomNum].name;
-} else {
-    note = 'A1';
+function setNote() {
+    if(currentUserInfo.randomFirstNote === 'yes') {
+        const randomNum = Math.floor(Math.random() * 12);
+        note = notesArrayObjects[randomNum].name;
+    } else {
+        note = 'A1';
+    }
 }
 
+setNote();
 
 let totalRounds = currentUserInfo.numberOfQuestions;
 let roundCounter = 0;
@@ -78,16 +81,11 @@ function quizRound() {
     playIntervalButton.disabled = false;
     let playIntervalCounter = 1;
 
-    if(currentUserInfo.randomFirstNote === 'yes') {
-        const randomNum = Math.floor(Math.random() * 12);
-        note = notesArrayObjects[randomNum].name;
-    } else {
-        note = 'A1';
-    }
+    setNote();
+
     interval.setFirstNote(note);
 
     let intervalDistance = Math.floor(Math.random() * diatonicScale.length);
-    
     lastIntervalUsedArray.push(intervalDistance);
 
     if(lastIntervalUsedArray.length === 2) {
@@ -125,7 +123,6 @@ function quizRound() {
         }
     };
 
-
     playIntervalButton.addEventListener('click', playCallback);
 
     let answerOptionsArray = [];
@@ -152,11 +149,10 @@ function quizRound() {
         choiceSection.appendChild(dom);
     }
 
-
-    answerButtons = document.getElementsByClassName('answer-button');
-    [...answerButtons].forEach((button) => {
+    answerButtons = document.querySelectorAl('.answer-button');
+    answerButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            [...answerButtons].forEach((button) => {
+            answerButtons.forEach((button) => {
                 button.classList.remove('selected');
             });
             button.classList.add('selected');
@@ -165,11 +161,15 @@ function quizRound() {
     });
 }
 
+function addThenRemoveFromAnswers(className) {
+    answerContainer.classList.add(className);
+    setTimeout(() => answerContainer.classList.remove(className), 400);        
+}
+
 nextButton.addEventListener('click', () => {
     disableNextButton();
     let selectedButton;
-    const buttons = [...answerButtons];
-    buttons.forEach(button => {
+    answerButtons.forEach(button => {
         if(button.className === 'answer-button selected') {
             selectedButton = button.id;
         }
@@ -177,25 +177,21 @@ nextButton.addEventListener('click', () => {
 
     if(currentUserInfo.soundEffects === 'some') {
         if(selectedButton === correctAnswer) {
-            answerContainer.classList.add('correct');
-            setTimeout(() => answerContainer.classList.remove('correct'), 400);
+            addThenRemoveFromAnswers('correct');
             correctNoise.play();
         }
         else {
-            answerContainer.classList.add('incorrect');
-            setTimeout(() => answerContainer.classList.remove('incorrect'), 400);
+            addThenRemoveFromAnswers('incorrect');
             incorrectNoise.play();
         }
     }
     else if(currentUserInfo.soundEffects === 'jarring') {
         if(selectedButton === correctAnswer) {
-            answerContainer.classList.add('correct-jarring');
-            setTimeout(() => answerContainer.classList.remove('correct-jarring'), 1000);
+            addThenRemoveFromAnswers('correct-jarring');
             correctJarringNoise.play();
         }
         else {
-            answerContainer.classList.add('incorrect-jarring');
-            setTimeout(() => answerContainer.classList.remove('incorrect-jarring'), 700);
+            addThenRemoveFromAnswers('incorrect-jarring');
             incorrectJarringNoise.play();
         }
     }
@@ -205,7 +201,6 @@ nextButton.addEventListener('click', () => {
     while(choiceSection.firstChild) {
         choiceSection.removeChild(choiceSection.firstChild);
     }
-
 
     roundCounter++;
     roundCounterRendered = roundCounter;

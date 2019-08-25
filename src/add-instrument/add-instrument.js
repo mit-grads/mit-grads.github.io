@@ -91,11 +91,14 @@ function newLine(id, name) {
 
 function updateDOM() {
 
-    const presetButtons = document.getElementsByClassName('preset');
+    // NodeList has a built-in forEach :)
+    // const presetButtons = document.getElementsByClassName('preset');
+    const presetButtons = document.querySelectorAll('.preset');
 
-    [...presetButtons].forEach((button) => {
+    // only need to get list of instruments once!
+    const instruments = storage.getInstruments();
 
-        const instruments = storage.getInstruments();
+    presetButtons.forEach((button) => {
 
         const instrument = findById(instruments, button.id);
 
