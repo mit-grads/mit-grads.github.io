@@ -1,4 +1,10 @@
-import { notesArrayObjects, chromaticIntervalReference, diatonicScale, chromaticScale } from './notes.js';
+import { 
+    // try and avoid data types in names
+    notesArrayObjects, // notes
+    chromaticIntervalReference, 
+    diatonicScale, 
+    chromaticScale 
+} from './notes.js';
 
 export class IntervalClass {
     constructor(note = 'A1', scale = 'diatonic') {
@@ -16,9 +22,11 @@ export class IntervalClass {
     getFirstNote() {
         return this.firstNote;
     }
+
     getSecondNote() {
         return this.secondNote;
     }
+
     setFirstNote(note) {
         this.startIndex = notesArrayObjects.findIndex((element) => element.name === note);
         if(this.startIndex >= 0) {
@@ -28,14 +36,16 @@ export class IntervalClass {
             this.firstNote = '';
         }
     }
+
     setSecondNote(distance, direction = 'ascending') {
         const intervalName = this.scale[distance];
-        const chromaticDegrees = chromaticIntervalReference[intervalName];
-        if(direction === 'ascending') {
-            this.secondNote = notesArrayObjects[this.startIndex + chromaticDegrees].name;
+        let chromaticDegrees = chromaticIntervalReference[intervalName];
+        
+        if(direction !== 'ascending') {
+            chromaticDegrees *= -1;
         }
-        else {
-            this.secondNote = notesArrayObjects[this.startIndex - chromaticDegrees].name;
-        }
+        
+        this.secondNote = notesArrayObjects[this.startIndex + chromaticDegrees].name;
+        
     }
 }

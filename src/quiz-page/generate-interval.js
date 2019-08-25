@@ -10,7 +10,6 @@ export class GenerateInterval {
     }
     removeInterval(interval) {
         const index = this.scale.indexOf(interval);
-        
         this.scale.splice(index, 1);
     }
 }

@@ -10,6 +10,9 @@ export function captureResults(correctAnswer, selected, resultsArray) {
             if(correctAnswer === selected) {
                 resultsArray[i].correct++;
             }
+
+            // should there be a "break" here to avoid further looping?
+            break;
         }
     }
 

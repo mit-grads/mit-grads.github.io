@@ -25,18 +25,21 @@ initializeTheme();
 initializeUserName();
 storage.preLoadInstruments();
 
-while(possibleInstrumentList.firstChild) {
-    possibleInstrumentList.removeChild(possibleInstrumentList.firstChild);
+loadInstruments();
+
+function loadInstruments() {
+    while(possibleInstrumentList.firstChild) {
+        possibleInstrumentList.removeChild(possibleInstrumentList.firstChild);
+    }
+    
+    const preLoadedInstruments = storage.getInstruments();
+    
+    for(let i = 0; i < preLoadedInstruments.length; i++) {
+        const instrument = preLoadedInstruments[i];
+        const dom = renderInstrumentOptionsToDom(instrument);
+        possibleInstrumentList.appendChild(dom);
+    }
 }
-
-const preLoadedInstruments = storage.getInstruments();
-
-for(let i = 0; i < preLoadedInstruments.length; i++) {
-    const instrument = preLoadedInstruments[i];
-    const dom = renderInstrumentOptionsToDom(instrument);
-    possibleInstrumentList.appendChild(dom);
-}
-
 
 
 durationSpan.textContent = durationValue.value + ' seconds';

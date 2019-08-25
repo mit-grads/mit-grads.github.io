@@ -1,14 +1,13 @@
 export function renderTHead() {
     const headerRow = document.createElement('thead');
-    const headerCell1 = document.createElement('th');
-    const headerCell2 = document.createElement('th');
-    const headerCell3 = document.createElement('th');
-    headerRow.appendChild(headerCell1);
-    headerRow.appendChild(headerCell2);
-    headerRow.appendChild(headerCell3);
-    headerCell1.textContent = 'Interval';
-    headerCell2.textContent = 'Correct';
-    headerCell3.textContent = 'Attempts';
+
+    const headers = ['Interval', 'Correct', 'Attempts'];
+    for(let i = 0; i < headers.length; i++) {
+        const headerCell = document.createElement('th');
+        headerCell.textContent = headers[i];
+        headerRow.appendChild(headerCell);
+    }
+    
     return headerRow;
 }
 

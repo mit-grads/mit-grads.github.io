@@ -39,11 +39,7 @@ export const storage = {
     },
     getInstruments() {
         const storedInstruments = this.get(INSTRUMENTS_KEY);
-
-        if(storedInstruments) {
-            return storedInstruments;
-        }
-        return [];
+        return storedInstruments || [];
     },
     preLoadInstruments() {
         const loadedInstruments = this.getInstruments();
